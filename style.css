@@ -622,3 +622,16 @@ nav#desktop-nav .nav-links li a:hover {
     font-size: 0.9rem;
   }
 }
+/* MOBILE NAV: Only show name/logo, hide menu icon and links */
+@media screen and (max-width: 600px) {
+  #hamburger-nav .hamburger-menu {
+    display: none !important;
+  }
+
+  #hamburger-nav .logo {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    font-size: 1.6rem;
+  }
+}
