@@ -6,36 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
+    <!-- DESKTOP NAVIGATION -->
     <nav id="desktop-nav">
       <div class="logo">Pravan Gorthy</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
     </nav>
+
+    <!-- MOBILE NAVIGATION -->
     <nav id="hamburger-nav">
       <div class="logo">Pravan Gorthy</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
     </nav>
+
+    <!-- PROFILE SECTION -->
     <section id="profile">
       <div class="section__pic-container">
         <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" />
@@ -45,12 +28,8 @@
         <h1 class="title">Pravan Gorthy</h1>
         <p class="section__text__p2">Software Engineer</p>
         <div class="btn-container">
-          <button class="btn btn-color-2" onclick="window.open('./assets/pravan_resume.pdf')">
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
+          <button class="btn btn-color-2" onclick="window.open('./assets/pravan_resume.pdf')">Download CV</button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
         </div>
         <div id="socials-container">
           <img
@@ -68,6 +47,8 @@
         </div>
       </div>
     </section>
+
+    <!-- ABOUT SECTION -->
     <section id="about">
       <p class="section__text__p1">Get To Know More</p>
       <h1 class="title">About Me</h1>
@@ -100,6 +81,8 @@
       </div>
       <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
     </section>
+
+    <!-- EXPERIENCE SECTION -->
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Experience</h1>
@@ -129,6 +112,8 @@
       </div>
       <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
     </section>
+
+    <!-- PROJECTS SECTION -->
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
@@ -168,13 +153,15 @@
       </div>
       <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
+
+    <!-- CONTACT SECTION -->
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
           <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-          <p><a href="mailto:examplemail@gmail.com">pravangorthy21@gmail.com</a></p>
+          <p><a href="mailto:pravangorthy21@gmail.com">pravangorthy21@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
           <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
@@ -182,19 +169,13 @@
         </div>
       </div>
     </section>
+
+    <!-- FOOTER SECTION -->
     <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2023 John Doe. All Rights Reserved.</p>
+      <p>&#169; 2023 John Doe. All Rights Reserved.</p>
     </footer>
+
+    <!-- OPTIONAL JS IF NEEDED -->
     <script src="script.js"></script>
   </body>
 </html>
