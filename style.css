@@ -464,3 +464,161 @@ nav#desktop-nav .nav-links li a {
 nav#desktop-nav .nav-links li a:hover {
   color: #ccc;
 }
+/* ------------------- MEDIA QUERIES ------------------- */
+
+/* Medium screens: tablets and small laptops */
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+
+  #hamburger-nav {
+    display: flex;
+  }
+
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+
+  #profile,
+  .section-container {
+    display: block;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  section,
+  .section-container {
+    height: fit-content;
+  }
+
+  section {
+    margin: 0 5%;
+  }
+
+  #profile .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+
+  .about-pic {
+    width: 275px;
+    height: auto;
+    border-radius: 0;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .about-containers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+/* Small screens: phones and small devices */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  #desktop-nav {
+    display: none;
+  }
+
+  #hamburger-nav {
+    display: flex;
+  }
+
+  #profile {
+    height: fit-content;
+    margin-bottom: 2rem;
+    flex-direction: column;
+  }
+
+  .section__pic-container {
+    width: 200px;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .about-pic {
+    width: 200px;
+    height: auto;
+    border-radius: 0;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  .about-containers {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .text-container {
+    text-align: justify;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+
+  article {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+}
