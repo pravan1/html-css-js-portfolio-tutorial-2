@@ -1,603 +1,188 @@
-/* GENERAL */
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(to bottom right, #ffffff, #007BFF);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #000;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-p {
-  color: rgb(85, 85, 85);
-}
-
-/* TRANSITION */
-
-a,
-.btn {
-  transition: all 300ms ease;
-}
-
-/* DESKTOP NAV */
-
-nav,
-.nav-links {
-  display: flex;
-}
-
-nav#desktop-nav {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(6px);
-  color: black;
-  height: 120px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 4rem;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.nav-links {
-  gap: 2rem;
-  list-style: none;
-  font-size: 1.5rem;
-}
-
-nav#desktop-nav .logo {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: black;
-}
-
-.nav-links li a {
-  color: black;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: #007BFF;
-}
-
-.logo:hover {
-  cursor: default;
-}
-
-/* HAMBURGER MENU */
-
-#hamburger-nav {
-  display: none;
-}
-
-.hamburger-menu {
-  position: relative;
-  display: inline-block;
-}
-
-.hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
-  width: 30px;
-  cursor: pointer;
-}
-
-.hamburger-icon span {
-  width: 100%;
-  height: 2px;
-  background-color: black;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-links {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-  width: fit-content;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-links a {
-  display: block;
-  padding: 10px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: black;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-links li {
-  list-style: none;
-}
-
-.menu-links.open {
-  max-height: 300px;
-}
-
-.hamburger-icon.open span:first-child {
-  transform: rotate(45deg) translate(10px, 5px);
-}
-
-.hamburger-icon.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-icon.open span:last-child {
-  transform: rotate(-45deg) translate(10px, -5px);
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
-  opacity: 1;
-}
-
-/* SECTIONS */
-
-section {
-  padding-top: 4vh;
-  height: 96vh;
-  margin: 0 10rem;
-  box-sizing: border-box;
-  min-height: fit-content;
-}
-
-.section-container {
-  display: flex;
-  gap: 4rem;
-  height: 80%;
-}
-
-/* PROFILE SECTION */
-
-#profile {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  height: 80vh;
-}
-
-#profile .section__pic-container {
-  display: flex;
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
-  overflow: hidden;
-}
-
-#profile .section__pic-container img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.section__text {
-  align-self: center;
-  text-align: center;
-}
-
-.section__text p {
-  font-weight: 600;
-}
-
-.section__text__p1 {
-  text-align: center;
-}
-
-.section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: 3rem;
-  text-align: center;
-}
-
-#socials-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 1rem;
-}
-
-/* ICONS */
-
-.icon {
-  cursor: pointer;
-  height: 2rem;
-}
-
-/* BUTTONS */
-
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.btn {
-  font-weight: 600;
-  transition: all 300ms ease;
-  padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
-}
-
-.btn-color-1,
-.btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
-}
-
-.btn-color-1:hover,
-.btn-color-2:hover {
-  cursor: pointer;
-}
-
-.btn-color-1,
-.btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
-}
-
-.btn-color-1:hover {
-  background: rgb(0, 0, 0);
-}
-
-.btn-color-2 {
-  background: none;
-}
-
-.btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
-}
-
-/* ABOUT SECTION */
-
-#about {
-  position: relative;
-}
-
-.about-containers {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.about-details-container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.about-pic {
-  width: 300px;
-  height: auto;
-  border-radius: 2rem;
-  object-fit: cover;
-}
-
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-}
-
-.details-container {
-  padding: 1.5rem;
-  flex: 1;
-  background: white;
-  border-radius: 2rem;
-  border: rgb(163, 163, 163) 0.1rem solid;
-  text-align: center;
-}
-
-/* EXPERIENCE SECTION */
-
-#experience {
-  position: relative;
-}
-
-.experience-sub-title {
-  color: rgb(85, 85, 85);
-  font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-.experience-details-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.article-container {
-  display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
-}
-
-article {
-  display: flex;
-  width: 10rem;
-  justify-content: space-around;
-  gap: 0.5rem;
-}
-
-article .icon {
-  cursor: default;
-}
-
-/* PROJECTS SECTION */
-
-#projects {
-  position: relative;
-}
-
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
-}
-
-.project-title {
-  margin: 1rem;
-  color: black;
-}
-
-.project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
-}
-
-/* CONTACT */
-
-#contact {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 70vh;
-}
-
-.contact-info-upper-container {
-  display: flex;
-  justify-content: center;
-  border-radius: 2rem;
-  border: rgb(163, 163, 163) 0.1rem solid;
-  background: rgba(255, 255, 255, 0.8);
-  margin: 2rem auto;
-  padding: 0.5rem;
-}
-
-.contact-info-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem;
-}
-
-.contact-info-container p {
-  font-size: larger;
-}
-
-.contact-icon {
-  cursor: default;
-}
-
-.email-icon {
-  height: 2.5rem;
-}
-
-/* FOOTER SECTION */
-
-footer {
-  height: 26vh;
-  margin: 0 1rem;
-}
-
-footer p {
-  text-align: center;
-}
-
-/* ------------------- MEDIA QUERIES ------------------- */
-
-@media screen and (max-width: 1200px) {
-  #desktop-nav {
-    display: none;
-  }
-
-  #hamburger-nav {
-    display: flex;
-  }
-
-  #experience,
-  .experience-details-container {
-    margin-top: 2rem;
-  }
-
-  #profile,
-  .section-container {
-    display: block;
-  }
-
-  .arrow {
-    display: none;
-  }
-
-  section,
-  .section-container {
-    height: fit-content;
-  }
-
-  section {
-    margin: 0 5%;
-  }
-
-  #profile .section__pic-container {
-    width: 275px;
-    height: 275px;
-    margin: 0 auto 2rem;
-  }
-
-  .about-pic {
-    width: 275px;
-    height: auto;
-    border-radius: 0;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .about-containers {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn-container {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  body {
-    font-size: 14px;
-  }
-
-  #desktop-nav {
-    display: none;
-  }
-
-  #hamburger-nav {
-    display: flex;
-  }
-
-  #profile {
-    height: fit-content;
-    margin-bottom: 2rem;
-    flex-direction: column;
-  }
-
-  .section__pic-container {
-    width: 200px;
-    height: auto;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .section__text__p2 {
-    font-size: 1.25rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .about-pic {
-    width: 200px;
-    height: auto;
-    border-radius: 0;
-    display: block;
-    margin: 0 auto 1rem;
-  }
-
-  .about-containers {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .text-container {
-    text-align: justify;
-  }
-
-  .contact-info-upper-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-  }
-
-  .experience-sub-title {
-    font-size: 1.25rem;
-  }
-
-  article {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .project-img {
-    width: 100%;
-    height: auto;
-  }
-
-  footer {
-    height: auto;
-    padding: 2rem 0;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-  }
-
-  #hamburger-nav .hamburger-menu {
-    display: none !important;
-  }
-
-  #hamburger-nav .logo {
-    margin: auto;
-    text-align: center;
-    width: 100%;
-    font-size: 1.6rem;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- DESKTOP NAVIGATION -->
+    <nav id="desktop-nav">
+      <div class="logo">Pravan Gorthy</div>
+    </nav>
+
+    <!-- MOBILE NAVIGATION -->
+    <nav id="hamburger-nav">
+      <div class="logo">Pravan Gorthy</div>
+    </nav>
+
+  <!-- PROFILE SECTION -->
+<section id="profile">
+  <div class="section__pic-container">
+    <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" />
+  </div>
+  <div class="section__text">
+    <p class="section__text__p1">Hello, I'm</p>
+    <h1 class="title">Pravan Gorthy</h1>
+    <p class="section__text__p2">Software Engineer</p>
+    <div class="btn-container">
+      <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
+    </div>
+    <div id="socials-container">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+        alt="My LinkedIn profile"
+        class="icon"
+        onclick="location.href='https://www.linkedin.com/in/pravangorthy/'"
+      />
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+        alt="My Github profile"
+        class="icon"
+        onclick="location.href='https://github.com/pravan1'"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION (Now placed after profile) -->
+<section id="contact">
+  <p class="section__text__p1">Get in Touch</p>
+  <h1 class="title">Contact Me</h1>
+  <div class="contact-info-upper-container">
+    <div class="contact-info-container">
+      <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+      <p><a href="mailto:pravangorthy21@gmail.com">pravangorthy21@gmail.com</a></p>
+    </div>
+    <div class="contact-info-container">
+      <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+      <p><a href="https://www.linkedin.com/in/pravangorthy/">LinkedIn</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME SECTION (EMBEDDED PDF) -->
+<section id="resume">
+  <p class="section__text__p1">Check Out My</p>
+  <h1 class="title">Resume</h1>
+  <div class="resume-container" style="display: flex; justify-content: center;">
+    <iframe src="./assets/pravan_resume.pdf" width="80%" height="600px" style="border: none;"></iframe>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <p class="section__text__p1">Get To Know More</p>
+  <h1 class="title">About Me</h1>
+  <div class="section-container">
+    <div class="section__pic-container">
+      <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" />
+    </div>
+    <div class="about-details-container">
+      <div class="about-containers">
+        <div class="details-container">
+          <img src="./assets/experience.png" alt="Experience icon" class="icon" />
+          <h3>Experience</h3>
+          <p>2+ years<br />Frontend & Software Development</p>
+        </div>
+        <div class="details-container">
+          <img src="./assets/education.png" alt="Education icon" class="icon" />
+          <h3>Education</h3>
+          <p>B.S. in Computer Science<br />Currently pursuing</p>
+        </div>
+      </div>
+      <div class="text-container">
+        <p>
+          Hello! My name is Pravan, I’m an undergraduate at the University of Texas at Dallas,
+          majoring in Computer Science. I focus on Software Engineering and Cybersecurity due to their
+          rapid growth and impact. I'm experienced in Python, Java, and C++, and I've used these skills
+          across multiple personal and academic projects.
+        </p>
+      </div>
+    </div>
+  </div>
+  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience">
+  <p class="section__text__p1">Explore My</p>
+  <h1 class="title">Experience</h1>
+  <div class="experience-details-container">
+    <div class="about-containers">
+      <div class="details-container">
+        <h2 class="experience-sub-title">Frontend Languages</h2>
+        <div class="article-container">
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>HTML</h3><p>Experienced</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>CSS</h3><p>Experienced</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>SASS</h3><p>Intermediate</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>JavaScript</h3><p>Basic</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>TypeScript</h3><p>Basic</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Material UI</h3><p>Intermediate</p></div></article>
+        </div>
+      </div>
+      <div class="details-container">
+        <h2 class="experience-sub-title">Frontend Development</h2>
+        <div class="article-container">
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>PostgreSQL</h3><p>Basic</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Node.js</h3><p>Intermediate</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Express.js</h3><p>Intermediate</p></div></article>
+          <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Git</h3><p>Intermediate</p></div></article>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+  <p class="section__text__p1">Browse My Recent</p>
+  <h1 class="title">Projects</h1>
+  <div class="experience-details-container">
+    <div class="about-containers">
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
+        </div>
+        <h2 class="experience-sub-title project-title">CoachMe</h2>
+        <p class="muted">Still under development</p>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/smitheartc/CoachMe'">Github</button>
+        </div>
+      </div>
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
+        </div>
+        <h2 class="experience-sub-title project-title">BudgetCents</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/saigudisa6/budgetcents'">Github</button>
+          <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/budgetcents'">Live Demo</button>
+        </div>
+      </div>
+      <div class="details-container color-container">
+        <div class="article-container">
+          <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
+        </div>
+        <h2 class="experience-sub-title project-title">Courtlink</h2>
+        <p class="muted">Still under development</p>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/arnavvalvekar/CourtLink'">Github</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer>
+  <p>&#169; 2025 Pravan Gorthy. All Rights Reserved.</p>
+</footer>
+
+<!-- OPTIONAL JS IF NEEDED -->
+<script src="script.js"></script>
+</body>
+</html>
