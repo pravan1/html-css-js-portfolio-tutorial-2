@@ -1,65 +1,188 @@
-<!-- NAVIGATION -->
-<nav id="desktop-nav">
-  <div class="logo">Pravan Gorthy</div>
-</nav>
-<nav id="hamburger-nav">
-  <div class="logo">Pravan Gorthy</div>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- DESKTOP NAVIGATION -->
+    <nav id="desktop-nav">
+      <div class="logo">Pravan Gorthy</div>
+    </nav>
 
-<!-- CONTACT SECTION - moved to top -->
-<section id="contact">
-  <p class="section__text__p1">Get in Touch</p>
-  <h1 class="title">Contact Me</h1>
-  <div class="contact-info-upper-container">
-    <div class="contact-info-container">
-      <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-      <p><a href="mailto:pravangorthy21@gmail.com">pravangorthy21@gmail.com</a></p>
-    </div>
-    <div class="contact-info-container">
-      <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
-      <p><a href="https://www.linkedin.com/in/pravangorthy/">LinkedIn</a></p>
-    </div>
-  </div>
-</section>
+    <!-- MOBILE NAVIGATION -->
+    <nav id="hamburger-nav">
+      <div class="logo">Pravan Gorthy</div>
+    </nav>
 
-<!-- PROFILE SECTION -->
-<section id="profile">
-  <div class="section__pic-container">
-    <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" />
-  </div>
-  <div class="section__text">
-    <p class="section__text__p1">Hello, I'm</p>
-    <h1 class="title">Pravan Gorthy</h1>
-    <p class="section__text__p2">Software Engineer</p>
-    <div class="btn-container">
-      <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
-    </div>
-    <div id="socials-container">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-           alt="My LinkedIn profile"
-           class="icon"
-           onclick="location.href='https://www.linkedin.com/in/pravangorthy/'" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-           alt="My Github profile"
-           class="icon"
-           onclick="location.href='https://github.com/pravan1'" />
-    </div>
-  </div>
-</section>
+    <!-- CONTACT SECTION (MOVED UP) -->
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+          <p><a href="mailto:pravangorthy21@gmail.com">pravangorthy21@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+          <p><a href="https://www.linkedin.com/in/pravangorthy/">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
 
-<!-- ABOUT SECTION (unchanged) -->
-<!-- ... -->
+    <!-- PROFILE SECTION -->
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Pravan Gorthy</h1>
+        <p class="section__text__p2">Software Engineer</p>
+        <div class="btn-container">
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/pravangorthy/'"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/pravan1'"
+          />
+        </div>
+      </div>
+    </section>
 
-<!-- EMBEDDED RESUME SECTION -->
-<section id="resume">
-  <p class="section__text__p1">View My</p>
-  <h1 class="title">Resume</h1>
-  <div class="resume-container" style="text-align: center;">
-    <iframe src="./assets/pravan_resume.pdf" width="90%" height="600px" style="border: 1px solid #ccc;"></iframe>
-  </div>
-</section>
+    <!-- RESUME SECTION (EMBEDDED PDF) -->
+    <section id="resume">
+      <p class="section__text__p1">Check Out My</p>
+      <h1 class="title">Resume</h1>
+      <div class="resume-container" style="display: flex; justify-content: center;">
+        <iframe src="./assets/pravan_resume.pdf" width="80%" height="600px" style="border: none;"></iframe>
+      </div>
+    </section>
 
-<!-- FOOTER SECTION -->
-<footer>
-  <p>&#169; 2025 Pravan Gorthy. All Rights Reserved.</p>
-</footer>
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img src="./assets/experience.png" alt="Experience icon" class="icon" />
+              <h3>Experience</h3>
+              <p>1+ year<br />Frontend Development & Software Development</p>
+            </div>
+            <div class="details-container">
+              <img src="./assets/education.png" alt="Education icon" class="icon" />
+              <h3>Education</h3>
+              <p>B.S. in Computer Science<br />Currently pursuing</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              Hello! My name is Pravan, I am an undergraduate student at the University of Texas at Dallas, majoring in computer science.
+              I’ve chosen to focus on Software Engineering as well as Cyber Security because of its rapid growth and profound impact 
+              on society. I have experience with quite a few coding languages such as Python, Java, and C++. With a background
+              like this, I have been able to step into the fields of Software Engineering and Cyber Security.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Languages</h2>
+            <div class="article-container">
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>HTML</h3><p>Experienced</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>CSS</h3><p>Experienced</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>SASS</h3><p>Intermediate</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>JavaScript</h3><p>Basic</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>TypeScript</h3><p>Basic</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Material UI</h3><p>Intermediate</p></div></article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>PostgreSQL</h3><p>Basic</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Node JS</h3><p>Intermediate</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Express JS</h3><p>Intermediate</p></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Git</h3><p>Intermediate</p></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
+            </div>
+            <h2 class="experience-sub-title project-title">CoachMe</h2>
+            <p style="text-align: center; font-style: italic; color: gray;">Still under development</p>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/smitheartc/CoachMe'">Github</button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
+            </div>
+            <h2 class="experience-sub-title project-title">BudgetCents</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/saigudisa6/budgetcents'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/budgetcents'">Live Demo</button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
+            </div>
+            <h2 class="experience-sub-title project-title">Courtlink</h2>
+            <p style="text-align: center; font-style: italic; color: gray;">Still under development</p>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/arnavvalvekar/CourtLink'">Github</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+      <p>&#169; 2025 Pravan Gorthy. All Rights Reserved.</p>
+    </footer>
+
+    <!-- OPTIONAL JS IF NEEDED -->
+    <script src="script.js"></script>
+  </body>
+</html>
