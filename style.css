@@ -622,9 +622,19 @@ nav#desktop-nav .nav-links li a:hover {
     font-size: 0.9rem;
   }
 
-  #hamburger-nav .hamburger-menu {
-    display: none !important;
-  }
+ #hamburger-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  color: black;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
 
   #hamburger-nav .logo {
     margin: auto;
