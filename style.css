@@ -9,10 +9,6 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to bottom right, white, #007BFF);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 html {
@@ -468,7 +464,6 @@ nav#desktop-nav .nav-links li a {
 nav#desktop-nav .nav-links li a:hover {
   color: #ccc;
 }
-
 /* ------------------- MEDIA QUERIES ------------------- */
 
 /* Medium screens: tablets and small laptops */
@@ -627,7 +622,6 @@ nav#desktop-nav .nav-links li a:hover {
     font-size: 0.9rem;
   }
 }
-
 /* MOBILE NAV: Only show name/logo, hide menu icon and links */
 @media screen and (max-width: 600px) {
   #hamburger-nav .hamburger-menu {
