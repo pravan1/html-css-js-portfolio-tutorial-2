@@ -8,62 +8,72 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- DESKTOP NAVIGATION -->
-    <nav id="desktop-nav">
-      <div class="logo">Pravan Gorthy</div>
-    </nav>
-
-    <!-- MOBILE NAVIGATION -->
+    <!-- ✅ SINGLE NAVIGATION BAR -->
     <nav id="hamburger-nav">
       <div class="logo">Pravan Gorthy</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="menu-links">
+          <li><a href="#profile" onclick="closeMenu()">Home</a></li>
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+          <li><a href="#resume" onclick="closeMenu()">Resume</a></li>
+        </ul>
+      </div>
     </nav>
 
-  <!-- PROFILE SECTION -->
-<section id="profile">
-  <div class="section__pic-container">
-    <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" />
-  </div>
-  <div class="section__text">
-    <p class="section__text__p1">Hello, I'm</p>
-    <h1 class="title">Pravan Gorthy</h1>
-    <p class="section__text__p2">Software Engineer</p>
-    <div class="btn-container">
-      <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
-    </div>
-    <div id="socials-container">
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-        alt="My LinkedIn profile"
-        class="icon"
-        onclick="location.href='https://www.linkedin.com/in/pravangorthy/'"
-      />
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-        alt="My Github profile"
-        class="icon"
-        onclick="location.href='https://github.com/pravan1'"
-      />
-    </div>
-  </div>
-</section>
+    <!-- PROFILE SECTION -->
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Pravan Gorthy</h1>
+        <p class="section__text__p2">Software Engineer</p>
+        <div class="btn-container">
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/pravangorthy/'"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/pravan1'"
+          />
+        </div>
+      </div>
+    </section>
 
-<!-- CONTACT SECTION (Now placed after profile) -->
-<section id="contact">
-  <p class="section__text__p1">Get in Touch</p>
-  <h1 class="title">Contact Me</h1>
-  <div class="contact-info-upper-container">
-    <div class="contact-info-container">
-      <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-      <p><a href="mailto:pravangorthy21@gmail.com">pravangorthy21@gmail.com</a></p>
-    </div>
-    <div class="contact-info-container">
-      <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
-      <p><a href="https://www.linkedin.com/in/pravangorthy/">LinkedIn</a></p>
-    </div>
-  </div>
-</section>
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+          <p><a href="mailto:pravangorthy21@gmail.com">pravangorthy21@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+          <p><a href="https://www.linkedin.com/in/pravangorthy/">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
 
-    <!-- RESUME SECTION (EMBEDDED PDF) -->
+    <!-- RESUME SECTION -->
     <section id="resume">
       <p class="section__text__p1">Check Out My</p>
       <h1 class="title">Resume</h1>
@@ -85,7 +95,7 @@
             <div class="details-container">
               <img src="./assets/experience.png" alt="Experience icon" class="icon" />
               <h3>Experience</h3>
-              <p>2+ year<br />Frontend Development & Software Development</p>
+              <p>2+ years<br />Frontend & Software Development</p>
             </div>
             <div class="details-container">
               <img src="./assets/education.png" alt="Education icon" class="icon" />
@@ -177,12 +187,34 @@
       </div>
     </section>
 
-    <!-- FOOTER SECTION -->
+    <!-- FOOTER -->
     <footer>
       <p>&#169; 2025 Pravan Gorthy. All Rights Reserved.</p>
     </footer>
 
-    <!-- OPTIONAL JS IF NEEDED -->
-    <script src="script.js"></script>
+    <!-- ✅ NAVBAR MENU JS -->
+    <script>
+      const hamburgerIcon = document.querySelector(".hamburger-icon");
+      const menuLinks = document.querySelector(".menu-links");
+
+      function toggleMenu() {
+        hamburgerIcon.classList.toggle("open");
+        menuLinks.classList.toggle("open");
+      }
+
+      function closeMenu() {
+        hamburgerIcon.classList.remove("open");
+        menuLinks.classList.remove("open");
+      }
+
+      window.addEventListener("scroll", function () {
+        const nav = document.getElementById("hamburger-nav");
+        if (window.scrollY > 50) {
+          nav.style.background = "rgba(75, 108, 183, 0.95)";
+        } else {
+          nav.style.background = "rgba(75, 108, 183, 0.8)";
+        }
+      });
+    </script>
   </body>
 </html>
