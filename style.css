@@ -9,8 +9,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding-top: 80px; /* Makes room for fixed navbar */
+  background: linear-gradient(to bottom, #ffffff 0%, #87cefa 100%);
+  padding-top: 80px; /* Prevents content from hiding behind navbar */
 }
 
 html {
@@ -28,7 +28,7 @@ a,
   transition: all 300ms ease;
 }
 
-/* HAMBURGER NAVBAR - now always used */
+/* HAMBURGER NAVBAR - now always used and constant transparent blue */
 
 #hamburger-nav {
   position: fixed;
@@ -41,8 +41,8 @@ a,
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
+  background: rgba(135, 206, 250, 0.6); /* Transparent sky blue */
+  backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -238,10 +238,6 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-.btn-container {
-  gap: 1rem;
-}
-
 /* ABOUT SECTION */
 
 #about {
@@ -359,7 +355,7 @@ article .icon {
   border-color: rgb(163, 163, 163);
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
 
 #contact {
   display: flex;
