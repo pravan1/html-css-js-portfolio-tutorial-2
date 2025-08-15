@@ -119,7 +119,7 @@ a,
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  padding-bottom: 4vh;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
@@ -135,7 +135,7 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
+  min-height: 80vh;
 }
 
 #profile .section__pic-container {
@@ -242,6 +242,7 @@ section {
 
 #about {
   position: relative;
+  min-height: auto;
 }
 
 .about-containers {
@@ -292,6 +293,7 @@ section {
 
 #experience {
   position: relative;
+  margin-bottom: 2rem;
 }
 
 .experience-sub-title {
@@ -331,12 +333,17 @@ article .icon {
 
 #projects {
   position: relative;
+  margin-top: 2rem;
 }
 
 .color-container {
   border-color: rgb(163, 163, 163);
   background: rgba(250, 250, 250, 0.8);
   backdrop-filter: blur(5px);
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-img {
@@ -361,7 +368,7 @@ article .icon {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  min-height: 50vh;
 }
 
 .contact-info-upper-container {
@@ -399,12 +406,17 @@ article .icon {
 /* FOOTER SECTION */
 
 footer {
-  height: 26vh;
-  margin: 0 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  background: rgba(135, 206, 250, 0.3);
 }
 
 footer p {
   text-align: center;
+  margin: 0;
 }
 
 /* ------------------- MEDIA QUERIES ------------------- */
@@ -457,25 +469,188 @@ footer p {
     gap: 1rem;
     align-items: center;
   }
+
+  /* Resume section mobile optimization */
+  #resume {
+    padding: 2rem 1rem;
+  }
+
+  .resume-container {
+    overflow-x: auto;
+  }
+
+  .resume-container iframe {
+    min-width: 300px;
+    height: 400px !important;
+  }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   body {
     font-size: 14px;
+    padding-top: 60px;
+  }
+
+  #hamburger-nav {
+    height: 60px;
+    padding: 0 1rem;
+  }
+
+  section {
+    margin: 0 1rem;
+    padding: 2rem 0;
   }
 
   #profile {
     height: fit-content;
     margin-bottom: 2rem;
     flex-direction: column;
+    gap: 2rem;
   }
 
-  .section__pic-container {
-    width: 200px;
+  #profile .section__pic-container {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  .section__text__p2 {
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .about-pic {
+    width: 250px;
     height: auto;
+    border-radius: 1rem;
+    display: block;
     margin: 0 auto 1.5rem;
-    display: flex;
-    justify-content: center;
+  }
+
+  .about-containers {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .details-container {
+    margin: 0 1rem;
+  }
+
+  .text-container {
+    text-align: justify;
+    padding: 0 1rem;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin: 1rem;
+  }
+
+  .contact-info-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0.5rem;
+  }
+
+  .contact-info-container p {
+    font-size: 1rem;
+  }
+
+  .menu-links a {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .experience-sub-title {
+    font-size: 1.5rem;
+  }
+
+  .experience-details-container .about-containers {
+    flex-direction: column;
+  }
+
+  .article-container {
+    gap: 1.5rem;
+  }
+
+  article {
+    width: 45%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  article h3 {
+    font-size: 1rem;
+  }
+
+  article p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    width: 7rem;
+  }
+
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .color-container {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  /* Resume section for mobile */
+  #resume {
+    padding: 2rem 0.5rem;
+  }
+
+  .resume-container {
+    padding: 0 0.5rem;
+  }
+
+  .resume-container iframe {
+    width: 100% !important;
+    height: 500px !important;
+    max-width: 100%;
+  }
+
+  footer {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  #profile .section__pic-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section__text__p1 {
+    font-size: 0.9rem;
   }
 
   .section__text__p2 {
@@ -488,65 +663,35 @@ footer p {
 
   .about-pic {
     width: 200px;
-    height: auto;
-    border-radius: 0;
-    display: block;
-    margin: 0 auto 1rem;
   }
 
-  .about-containers {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
+  article {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
   }
 
-  .text-container {
-    text-align: justify;
+  .btn {
+    width: 100%;
+    max-width: 200px;
   }
 
-  .contact-info-upper-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-
-  .logo {
-    font-size: 1.5rem;
+  .btn-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .experience-sub-title {
     font-size: 1.25rem;
   }
 
-  article {
-    width: 100%;
-    justify-content: flex-start;
+  .project-title {
+    font-size: 1.25rem;
   }
 
-  .btn {
-    width: 100%;
-  }
-
-  .project-img {
-    width: 100%;
-    height: auto;
-  }
-
-  footer {
-    height: auto;
-    padding: 2rem 0;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-  }
-
+  /* Hide hamburger menu on very small screens */
   #hamburger-nav .hamburger-menu {
     display: none !important;
   }
@@ -555,8 +700,13 @@ footer p {
     margin: auto;
     text-align: center;
     width: 100%;
-    font-size: 1.6rem;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 1.4rem;
+    color: #182848;
+    font-weight: 600;
+  }
+
+  /* Resume for very small screens */
+  .resume-container iframe {
+    height: 400px !important;
   }
 }
