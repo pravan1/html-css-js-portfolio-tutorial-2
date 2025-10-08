@@ -331,11 +331,11 @@ section {
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
 }
 
-#socials-container .icon {
+#socials-container .icon[alt*="Github"] {
   filter: brightness(0) invert(1);
 }
 
-#socials-container .icon:hover {
+#socials-container .icon[alt*="Github"]:hover {
   filter: brightness(0) invert(1) drop-shadow(0 4px 8px rgba(255,255,255,0.3));
 }
 
@@ -420,7 +420,7 @@ section {
 .about-containers {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   gap: 2rem;
   margin: 2rem 0;
 }
@@ -455,6 +455,14 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   will-change: transform;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-container .article-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .details-container h3,
@@ -495,6 +503,10 @@ section {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.experience-details-container .about-containers {
+  align-items: stretch;
 }
 
 .article-container {
@@ -560,7 +572,8 @@ article .icon {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: visible;
   padding: clamp(1rem, 2vw, 1.5rem);
@@ -568,40 +581,13 @@ article .icon {
   border: rgba(135, 206, 235, 0.3) 0.15rem solid;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   will-change: transform;
-}
-
-.color-container::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(75, 108, 183, 0.1), transparent);
-  transform: rotate(45deg);
-  transition: all 0.5s;
-  opacity: 0;
-}
-
-.color-container:hover::before {
-  opacity: 1;
-  animation: shimmer 0.5s;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .color-container:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(75, 138, 196, 0.4);
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(135, 206, 235, 0.6);
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
+  transform: translateY(-8px) translateZ(0);
+  box-shadow: 0 12px 30px rgba(75, 138, 196, 0.4);
 }
 
 .project-img {
@@ -610,9 +596,11 @@ article .icon {
   height: auto;
   max-height: clamp(10rem, 20vw, 15rem);
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
   margin: 0 auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .color-container .article-container {
@@ -623,7 +611,7 @@ article .icon {
 }
 
 .color-container:hover .project-img {
-  transform: scale(1.05);
+  transform: scale(1.03) translateZ(0);
 }
 
 .project-title {
@@ -1091,10 +1079,6 @@ footer p {
     padding: 0.75rem;
   }
 
-  .logo {
-    font-size: 1.5rem;
-  }
-
   .experience-sub-title {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
   }
@@ -1184,6 +1168,16 @@ footer p {
     font-size: 13px;
   }
 
+  #hamburger-nav {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #hamburger-nav .logo {
+    font-size: 1.2rem;
+    flex: 0 1 auto;
+  }
+
   #profile .section__pic-container {
     width: 200px;
     height: 200px;
@@ -1231,10 +1225,6 @@ footer p {
 
   .project-title {
     font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-  }
-
-  #hamburger-nav .logo {
-    font-size: 1.2rem;
   }
 
   .resume-container iframe {
