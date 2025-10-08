@@ -202,8 +202,8 @@
       </div>
       <div class="album-container">
         <div class="album-card">
-          <img src="./assets/dopamines-album.jpeg" alt="Lil Tecca - Dopamines" class="album-img" />
-          <h3>Dopamines</h3>
+          <img src="./assets/dopamines-album.jpeg" alt="Lil Tecca - Dopamine" class="album-img" />
+          <h3>Dopamine</h3>
           <p>Lil Tecca</p>
         </div>
         <div class="album-card">
@@ -255,15 +255,18 @@
         menuLinks.classList.remove("open");
       }
 
-      // Navbar scroll effect
+      // Navbar scroll effect (throttled)
+      let lastScrollTime = 0;
       window.addEventListener("scroll", function () {
-        const nav = document.getElementById("hamburger-nav");
-        if (window.scrollY > 50) {
-          nav.style.background = "rgba(24, 40, 72, 0.95)";
-          nav.style.backdropFilter = "blur(15px)";
-        } else {
-          nav.style.background = "rgba(24, 40, 72, 0.7)";
-          nav.style.backdropFilter = "blur(10px)";
+        const now = Date.now();
+        if (now - lastScrollTime > 100) {
+          const nav = document.getElementById("hamburger-nav");
+          if (window.scrollY > 50) {
+            nav.style.background = "rgba(24, 40, 72, 0.95)";
+          } else {
+            nav.style.background = "rgba(24, 40, 72, 0.9)";
+          }
+          lastScrollTime = now;
         }
       });
 
@@ -366,17 +369,23 @@
         });
       });
 
-      // Add cursor trail effect
+      // Add cursor trail effect (throttled for performance)
+      let lastTrailTime = 0;
       document.addEventListener('mousemove', (e) => {
-        const trail = document.createElement('div');
-        trail.className = 'cursor-trail';
-        trail.style.left = e.pageX + 'px';
-        trail.style.top = e.pageY + 'px';
-        document.body.appendChild(trail);
+        const now = Date.now();
+        if (now - lastTrailTime > 50) { // Throttle to every 50ms
+          const trail = document.createElement('div');
+          trail.className = 'cursor-trail';
+          trail.style.left = e.pageX + 'px';
+          trail.style.top = e.pageY + 'px';
+          document.body.appendChild(trail);
 
-        setTimeout(() => {
-          trail.remove();
-        }, 1000);
+          setTimeout(() => {
+            trail.remove();
+          }, 1000);
+
+          lastTrailTime = now;
+        }
       });
     </script>
   </body>
