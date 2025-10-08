@@ -30,7 +30,7 @@
           <span></span>
         </div>
         <ul class="menu-links">
-          <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+          <li><a href="#profile" onclick="closeMenu()">Home</a></li>
           <li><a href="#about" onclick="closeMenu()">About Me</a></li>
           <li><a href="#experience" onclick="closeMenu()">Professional</a></li>
           <li><a href="#resume" onclick="closeMenu()">Academic</a></li>
@@ -41,29 +41,6 @@
         </ul>
       </div>
     </nav>
-
-    <!-- HERO SECTION -->
-    <section id="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-name typing-effect">PRAVAN GORTHY</h1>
-        <nav class="hero-nav">
-          <a href="#about" class="hero-link">ABOUT ME</a>
-          <a href="#experience" class="hero-link">PROFESSIONAL</a>
-          <a href="#resume" class="hero-link">ACADEMIC</a>
-          <a href="#photography" class="hero-link">PHOTOGRAPHY</a>
-          <a href="#music" class="hero-link">MUSIC</a>
-        </nav>
-        <div class="hero-socials">
-          <a href="https://www.linkedin.com/in/pravangorthy/" target="_blank" rel="noopener" class="hero-social-icon" aria-label="LinkedIn">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
-          </a>
-          <a href="https://github.com/pravan1" target="_blank" rel="noopener" class="hero-social-icon" aria-label="GitHub">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- PROFILE SECTION -->
     <section id="profile">
@@ -279,26 +256,6 @@
         }, 500);
       });
 
-      // Typing effect for hero
-      document.addEventListener("DOMContentLoaded", function() {
-        const typingElement = document.querySelector(".typing-effect");
-        if (typingElement) {
-          const text = typingElement.textContent;
-          typingElement.textContent = "";
-          typingElement.style.opacity = "1";
-
-          let index = 0;
-          function type() {
-            if (index < text.length) {
-              typingElement.textContent += text.charAt(index);
-              index++;
-              setTimeout(type, 100);
-            }
-          }
-
-          setTimeout(type, 500);
-        }
-      });
 
       // Scroll reveal animations
       const observerOptions = {
@@ -327,7 +284,7 @@
 
       // Observe all sections and animated elements
       document.addEventListener("DOMContentLoaded", function() {
-        const animatedElements = document.querySelectorAll('.animate-on-scroll, section:not(#hero), .details-container, .color-container, article, .about-pic');
+        const animatedElements = document.querySelectorAll('.animate-on-scroll, section, .details-container, .color-container, article, .about-pic');
         animatedElements.forEach(el => {
           el.style.opacity = "0";
           el.style.transform = "translateY(30px)";
