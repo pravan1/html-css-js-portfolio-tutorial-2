@@ -455,14 +455,6 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   will-change: transform;
-  display: flex;
-  flex-direction: column;
-}
-
-.details-container .article-container {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .details-container h3,
