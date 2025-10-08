@@ -420,7 +420,7 @@ section {
 .about-containers {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   gap: 2rem;
   margin: 2rem 0;
 }
