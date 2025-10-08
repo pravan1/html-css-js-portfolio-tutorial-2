@@ -449,6 +449,11 @@ section {
   will-change: transform;
 }
 
+.details-container h3,
+.details-container p {
+  color: #000 !important;
+}
+
 .details-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(75, 138, 196, 0.4);
@@ -508,7 +513,11 @@ article:hover {
 
 article h3 {
   position: relative;
-  color: #e8f0f8;
+  color: #000;
+}
+
+article p {
+  color: #000;
 }
 
 article h3::after {
@@ -633,6 +642,14 @@ article .icon {
 .placeholder-container p {
   font-size: 1.25rem;
   color: #333;
+}
+
+.photography-description {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #d0d8e0;
+  margin: 2rem auto;
+  max-width: 800px;
 }
 
 /* MUSIC SECTION */
