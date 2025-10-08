@@ -554,7 +554,7 @@ article .icon {
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: clamp(1rem, 2vw, 1.5rem);
   border-radius: 2rem;
   border: rgba(135, 206, 235, 0.3) 0.15rem solid;
@@ -627,6 +627,34 @@ article .icon {
 .project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
+}
+
+/* PROJECT TOOLTIPS */
+.color-container[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(24, 40, 72, 0.95);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  white-space: normal;
+  max-width: 300px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.color-container[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
 }
 
 /* PLACEHOLDER SECTIONS */
