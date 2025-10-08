@@ -331,6 +331,14 @@ section {
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
 }
 
+#socials-container .icon {
+  filter: brightness(0) invert(1);
+}
+
+#socials-container .icon:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 4px 8px rgba(255,255,255,0.3));
+}
+
 /* BUTTONS */
 .btn-container {
   display: flex;
