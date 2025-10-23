@@ -147,13 +147,14 @@
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
         <div class="about-containers">
-          <div class="details-container color-container" data-tooltip="This is to help connect athletes and coaches">
+          <div class="details-container color-container" data-tooltip="This is my project that won FIRST place at HackTX 25">
             <div class="article-container">
               <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
             </div>
-            <h2 class="experience-sub-title project-title">CoachMe</h2>
+            <h2 class="experience-sub-title project-title">EcoFin Carbon</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/smitheartc/CoachMe'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/arnavvalvekar/hacktx'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/ecofin-carbon?ref_content=user-portfolio&ref_feature=in_progress'">Live Demo</button>
             </div>
           </div>
           <div class="details-container color-container" data-tooltip="This project got me FIRST PLACE @ HackFIN, a financial tracking application">
@@ -170,37 +171,31 @@
             <div class="article-container">
               <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
             </div>
-            <h2 class="experience-sub-title project-title">Poseperfect.ai</h2>
+            <h2 class="experience-sub-title project-title">VirtuPose</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/pravan1/poseperfect'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/smitheartc/VirtuPose'">Github</button>
             </div>
           </div>
         </div>
       </div>
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
     </section>
 
     <!-- PHOTOGRAPHY SECTION -->
     <section id="photography">
-      <p class="section__text__p1">Visual Storytelling</p>
+      <p class="section__text__p1">Check Out My</p>
       <h1 class="title">Photography</h1>
-      <p class="photography-description">These are some photos I have taken with my Kodak pixpro fz45</p>
-      <div class="photo-grid">
-        <img src="./assets/pic1.JPG" alt="Photo 1" class="photo-item" />
-        <img src="./assets/pic2.jpg" alt="Photo 2" class="photo-item" />
-        <img src="./assets/pic3.jpg" alt="Photo 3" class="photo-item" />
-        <img src="./assets/pic4.jpg" alt="Photo 4" class="photo-item" />
-        <img src="./assets/pic5.jpg" alt="Photo 5" class="photo-item" />
-        <img src="./assets/pic6.jpg" alt="Photo 6" class="photo-item" />
-        <img src="./assets/pic7.JPG" alt="Photo 7" class="photo-item" />
-        <img src="./assets/pic8.jpg" alt="Photo 8" class="photo-item" />
-        <img src="./assets/pic9.jpg" alt="Photo 9" class="photo-item" />
-        <img src="./assets/pic10.jpg" alt="Photo 10" class="photo-item" />
-        <img src="./assets/pic11.jpg" alt="Photo 11" class="photo-item" />
-        <img src="./assets/pic12.jpg" alt="Photo 12" class="photo-item" />
-        <img src="./assets/pic13.jpg" alt="Photo 13" class="photo-item" />
-        <img src="./assets/pic14.jpg" alt="Photo 14" class="photo-item" />
-        <img src="./assets/pic15.jpg" alt="Photo 15" class="photo-item" />
-        <img src="./assets/pic16.jpg" alt="Photo 16" class="photo-item" />
+      <div class="photo-gallery">
+        <div class="photo-item"><img src="./assets/photo1.jpg" alt="Photo 1" onclick="openLightbox(this)" /></div>
+        <div class="photo-item"><img src="./assets/photo2.jpg" alt="Photo 2" onclick="openLightbox(this)" /></div>
+        <div class="photo-item"><img src="./assets/photo3.jpg" alt="Photo 3" onclick="openLightbox(this)" /></div>
+        <div class="photo-item"><img src="./assets/photo4.jpg" alt="Photo 4" onclick="openLightbox(this)" /></div>
+        <div class="photo-item"><img src="./assets/photo5.jpg" alt="Photo 5" onclick="openLightbox(this)" /></div>
+        <div class="photo-item"><img src="./assets/photo6.jpg" alt="Photo 6" onclick="openLightbox(this)" /></div>
+      </div>
+      <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
       </div>
     </section>
 
@@ -372,6 +367,18 @@
           lastTrailTime = now;
         }
       });
+
+      // Lightbox functionality
+      function openLightbox(img) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+      }
     </script>
   </body>
 </html>
