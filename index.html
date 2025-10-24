@@ -10,45 +10,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Optimized Styles -->
+    <!-- Guard rails / overrides -->
     <style>
-      body { 
-        overflow-x: hidden;
-        will-change: auto; /* Prevent unnecessary GPU layers */
-      }
+      body { overflow-x: hidden; }
 
       /* Loading screen */
-      #loading-screen { 
-        position: fixed; 
-        inset: 0; 
-        display: grid; 
-        place-items: center; 
-        background: #0e1526; 
-        z-index: 9999; 
-        transition: opacity .3s ease, visibility .3s ease; 
-      }
-      #loading-screen.hide { 
-        opacity: 0; 
-        visibility: hidden; 
-        pointer-events: none;
-      }
+      #loading-screen { position: fixed; inset: 0; display: grid; place-items: center; background: #0e1526; z-index: 9999; transition: opacity .3s ease, visibility .3s ease; }
+      #loading-screen.hide { opacity: 0; visibility: hidden; }
       .loader { display: flex; gap: 10px; }
-      .loader-dot { 
-        width: 10px; 
-        height: 10px; 
-        border-radius: 50%; 
-        background: #fff; 
-        animation: pulse 1s infinite alternate; 
-      }
+      .loader-dot { width: 10px; height: 10px; border-radius: 50%; background: #fff; animation: pulse 1s infinite alternate; }
       .loader-dot:nth-child(2){ animation-delay: .2s; }
       .loader-dot:nth-child(3){ animation-delay: .4s; }
-      @keyframes pulse { 
-        from{ opacity:.3; transform: translateY(0);} 
-        to{ opacity:1; transform: translateY(-6px);} 
-      }
+      @keyframes pulse { from{ opacity:.3; transform: translateY(0);} to{ opacity:1; transform: translateY(-6px);} }
 
-      /* Project tooltip - optimized */
+      /* --- PROJECT TOOLTIP (scoped to each card) --- */
       .color-container { position: relative; }
+      /* Remove any generic tooltip behavior you may have elsewhere */
       [data-tooltip]::after, [data-tooltip]::before { content: none; }
 
       .color-container::after {
@@ -57,7 +34,7 @@
         left: 50%;
         bottom: calc(100% + 10px);
         transform: translateX(-50%) translateY(4px);
-        width: 240px;
+        width: 240px;              /* fixed small box */
         max-width: 80vw;
         padding: 10px 12px;
         background: rgba(0,0,0,0.9);
@@ -66,7 +43,7 @@
         font-size: 12px;
         line-height: 1.35;
         text-align: left;
-        white-space: normal;
+        white-space: normal;       /* wrap text inside box */
         word-wrap: break-word;
         box-shadow: 0 8px 30px rgba(0,0,0,.35);
         pointer-events: none;
@@ -76,6 +53,7 @@
         z-index: 1000;
       }
       .color-container::before {
+        /* little arrow */
         content: "";
         position: absolute;
         left: 50%;
@@ -97,7 +75,7 @@
         transform: translateX(-50%) translateY(0);
       }
 
-      /* Pinterest-style masonry grid - OPTIMIZED */
+      /* Pinterest-style masonry grid - NEW */
       .photo-grid {
         column-count: 4;
         column-gap: 20px;
@@ -123,19 +101,18 @@
         border-radius: 16px;
         cursor: pointer;
         break-inside: avoid;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: transform;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
       }
 
-      /* Hover effect: lift up with blue glow */
+      /* Hover effect: lift up with blue glow - NEW */
       .photo-item:hover {
         transform: translateY(-12px) scale(1.02);
         box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6),
                     0 8px 20px rgba(59, 130, 246, 0.4);
       }
 
-      /* Better description styling */
+      /* Better description styling - NEW */
       .photography-description {
         text-align: center;
         font-size: 1.1rem;
@@ -145,9 +122,12 @@
         line-height: 1.6;
       }
 
-      /* Performance: Remove cursor trail on mobile */
-      @media (max-width: 768px) {
-        .cursor-trail { display: none !important; }
+      /* Cursor trail (non-layout affecting) */
+      .cursor-trail {
+        position: fixed; width: 8px; height: 8px; border-radius: 50%;
+        background: rgba(255,255,255,.6); pointer-events: none;
+        transform: translate(-50%, -50%); filter: blur(2px);
+        z-index: 9999;
       }
     </style>
   </head>
@@ -183,7 +163,7 @@
     <!-- PROFILE SECTION -->
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" loading="lazy" />
+        <img src="./assets/profile-pic.png" alt="Pravan Gorthy profile picture" />
       </div>
       <div class="section__text">
         <p class="section__text__p1 animate-on-scroll">Hello, I'm</p>
@@ -193,8 +173,8 @@
           <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
         </div>
         <div id="socials-container">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/pravangorthy/'" loading="lazy" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="My Github profile" class="icon" onclick="location.href='https://github.com/pravan1'" loading="lazy" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/pravangorthy/'" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="My Github profile" class="icon" onclick="location.href='https://github.com/pravan1'" />
         </div>
       </div>
     </section>
@@ -205,17 +185,17 @@
       <h1 class="title">About Me</h1>
       <div class="section-container">
         <div class="section__pic-container">
-          <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" loading="lazy" />
+          <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" />
         </div>
         <div class="about-details-container">
           <div class="about-containers">
             <div class="details-container">
-              <img src="./assets/experience.png" alt="Experience icon" class="icon" loading="lazy" />
+              <img src="./assets/experience.png" alt="Experience icon" class="icon" />
               <h3>Experience</h3>
               <p>2+ years<br />Frontend & Software Development</p>
             </div>
             <div class="details-container">
-              <img src="./assets/education.png" alt="Education icon" class="icon" loading="lazy" />
+              <img src="./assets/education.png" alt="Education icon" class="icon" />
               <h3>Education</h3>
               <p>B.S. in Computer Science<br />Currently pursuing</p>
             </div>
@@ -227,121 +207,47 @@
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" loading="lazy" />
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
     </section>
 
     <!-- RESUME SECTION -->
     <section id="resume">
       <p class="section__text__p1">Check Out My</p>
       <h1 class="title">Resume</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Education</h2>
-            <div class="article-container">
-              <article>
-                <div>
-                  <h3>University of Texas at Dallas</h3>
-                  <p>B.S. Computer Science</p>
-                  <p>August 2023 - May 2027</p>
-                  <p>GPA: 3.5/4.0</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Relevant Coursework</h2>
-            <div class="article-container">
-              <article>
-                <div>
-                  <p>• Data Structures & Algorithms</p>
-                  <p>• Computer Architecture</p>
-                  <p>• Database Systems</p>
-                  <p>• Software Engineering</p>
-                  <p>• Operating Systems</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
+      <div class="resume-container">
+        <iframe src="./assets/pravanResume27.pdf" style="width: 100%; max-width: 900px; height: 600px; border: none; display: block; margin: 0 auto;"></iframe>
       </div>
     </section>
 
     <!-- EXPERIENCE SECTION -->
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Professional Experience</h1>
+      <h1 class="title">Experience</h1>
       <div class="experience-details-container">
         <div class="about-containers">
           <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
+            <h2 class="experience-sub-title">Frontend Languages</h2>
             <div class="article-container">
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>React</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>HTML</h3><p>Experienced</p><div class="skill-bar"><div class="skill-progress" data-skill="90"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>CSS</h3><p>Experienced</p><div class="skill-bar"><div class="skill-progress" data-skill="85"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>SASS</h3><p>Intermediate</p><div class="skill-bar"><div class="skill-progress" data-skill="70"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>JavaScript</h3><p>Basic</p><div class="skill-bar"><div class="skill-progress" data-skill="60"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>TypeScript</h3><p>Basic</p><div class="skill-bar"><div class="skill-progress" data-skill="50"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Material UI</h3><p>Intermediate</p><div class="skill-bar"><div class="skill-progress" data-skill="70"></div></div></div></article>
             </div>
           </div>
           <div class="details-container">
-            <h2 class="experience-sub-title">Backend Development</h2>
+            <h2 class="experience-sub-title">Frontend Development</h2>
             <div class="article-container">
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>Python</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>Java</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>C++</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node JS icon" class="icon" loading="lazy" />
-                <div>
-                  <h3>Node JS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>PostgreSQL</h3><p>Basic</p><div class="skill-bar"><div class="skill-progress" data-skill="55"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Node JS</h3><p>Intermediate</p><div class="skill-bar"><div class="skill-progress" data-skill="75"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Express JS</h3><p>Intermediate</p><div class="skill-bar"><div class="skill-progress" data-skill="70"></div></div></div></article>
+              <article><img src="./assets/checkmark.png" class="icon" /><div><h3>Git</h3><p>Intermediate</p><div class="skill-bar"><div class="skill-progress" data-skill="75"></div></div></div></article>
             </div>
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" loading="lazy" />
+      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
     </section>
 
     <!-- PROJECTS SECTION -->
@@ -350,39 +256,42 @@
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
         <div class="about-containers">
-          <div class="details-container color-container" data-tooltip="A full-stack e-commerce platform with user authentication, product management, and payment integration.">
+          <div class="details-container color-container"
+               data-tooltip="FIRST @ HackTX — AI-powered carbon tracker; React + Node; personalized insights.">
             <div class="article-container">
-              <img src="./assets/project-1.png" alt="Project 1" class="project-img" loading="lazy" />
+              <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
             </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
+            <h2 class="experience-sub-title project-title">EcoFin Carbon</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/arnavvalvekar/hacktx'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/ecofin-carbon?ref_content=my-projects-tab&ref_feature=my_projects'">Live Demo</button>
             </div>
           </div>
-          <div class="details-container color-container" data-tooltip="A machine learning model that predicts stock prices using historical data and sentiment analysis.">
+
+          <div class="details-container color-container"
+               data-tooltip="FIRST @ HackFIN — budget tracker with Stripe + analytics dashboards.">
             <div class="article-container">
-              <img src="./assets/project-2.png" alt="Project 2" class="project-img" loading="lazy" />
+              <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
             </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <h2 class="experience-sub-title project-title">BudgetCents</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/saigudisa6/budgetcents'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/budgetcents'">Live Demo</button>
             </div>
           </div>
-          <div class="details-container color-container" data-tooltip="A real-time chat application with WebSocket support and end-to-end encryption.">
+
+          <div class="details-container color-container"
+               data-tooltip="PosePerfect — CV app for bodybuilding pose guidance (MediaPipe + OpenCV).">
             <div class="article-container">
-              <img src="./assets/project-3.png" alt="Project 3" class="project-img" loading="lazy" />
+              <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
             </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
+            <h2 class="experience-sub-title project-title">Poseperfect.ai</h2>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Github</button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">Live Demo</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/pravan1/poseperfect'">Github</button>
             </div>
           </div>
         </div>
       </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" loading="lazy" />
     </section>
 
     <!-- PHOTOGRAPHY SECTION -->
@@ -391,24 +300,25 @@
       <h1 class="title">Photography</h1>
       <p class="photography-description">These are some photos I have taken with my Kodak pixpro fz45</p>
       <div class="photo-grid">
-        <img src="./assets/pic1.JPG" alt="Photo 1" class="photo-item" loading="lazy" />
-        <img src="./assets/pic2.jpg" alt="Photo 2" class="photo-item" loading="lazy" />
-        <img src="./assets/pic3.jpg" alt="Photo 3" class="photo-item" loading="lazy" />
-        <img src="./assets/pic4.jpg" alt="Photo 4" class="photo-item" loading="lazy" />
-        <img src="./assets/pic5.jpg" alt="Photo 5" class="photo-item" loading="lazy" />
-        <img src="./assets/pic6.jpg" alt="Photo 6" class="photo-item" loading="lazy" />
-        <img src="./assets/pic7.JPG" alt="Photo 7" class="photo-item" loading="lazy" />
-        <img src="./assets/pic8.jpg" alt="Photo 8" class="photo-item" loading="lazy" />
-        <img src="./assets/pic9.jpg" alt="Photo 9" class="photo-item" loading="lazy" />
-        <img src="./assets/pic10.jpg" alt="Photo 10" class="photo-item" loading="lazy" />
-        <img src="./assets/pic11.jpg" alt="Photo 11" class="photo-item" loading="lazy" />
-        <img src="./assets/pic12.jpg" alt="Photo 12" class="photo-item" loading="lazy" />
-        <img src="./assets/pic13.jpg" alt="Photo 13" class="photo-item" loading="lazy" />
-        <img src="./assets/pic14.jpg" alt="Photo 14" class="photo-item" loading="lazy" />
-        <img src="./assets/pic15.jpg" alt="Photo 15" class="photo-item" loading="lazy" />
-        <img src="./assets/pic16.jpg" alt="Photo 16" class="photo-item" loading="lazy" />
+        <img src="./assets/pic1.JPG" alt="Photo 1" class="photo-item" />
+        <img src="./assets/pic2.jpg" alt="Photo 2" class="photo-item" />
+        <img src="./assets/pic3.jpg" alt="Photo 3" class="photo-item" />
+        <img src="./assets/pic4.jpg" alt="Photo 4" class="photo-item" />
+        <img src="./assets/pic5.jpg" alt="Photo 5" class="photo-item" />
+        <img src="./assets/pic6.jpg" alt="Photo 6" class="photo-item" />
+        <img src="./assets/pic7.JPG" alt="Photo 7" class="photo-item" />
+        <img src="./assets/pic8.jpg" alt="Photo 8" class="photo-item" />
+        <img src="./assets/pic9.jpg" alt="Photo 9" class="photo-item" />
+        <img src="./assets/pic10.jpg" alt="Photo 10" class="photo-item" />
+        <img src="./assets/pic11.jpg" alt="Photo 11" class="photo-item" />
+        <img src="./assets/pic12.jpg" alt="Photo 12" class="photo-item" />
+        <img src="./assets/pic13.jpg" alt="Photo 13" class="photo-item" />
+        <img src="./assets/pic14.jpg" alt="Photo 14" class="photo-item" />
+        <img src="./assets/pic15.jpg" alt="Photo 15" class="photo-item" />
+        <img src="./assets/pic16.jpg" alt="Photo 16" class="photo-item" />
       </div>
     </section>
+
 
     <!-- CONTACT SECTION -->
     <section id="contact">
@@ -416,11 +326,11 @@
       <h1 class="title">Contact Me</h1>
       <div class="contact-info-upper-container">
         <div class="contact-info-container">
-          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" loading="lazy" />
+          <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
           <p><a href="mailto:pravangorthy21@gmail.com">pravangorthy21@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
-          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" loading="lazy" />
+          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
           <p><a href="https://www.linkedin.com/in/pravangorthy/">LinkedIn</a></p>
         </div>
       </div>
@@ -431,9 +341,8 @@
       <p>&#169; 2025 Pravan Gorthy. All Rights Reserved.</p>
     </footer>
 
-    <!-- OPTIMIZED SCRIPTS -->
+    <!-- SCRIPTS -->
     <script>
-      // Menu functions
       const hamburgerIcon = document.querySelector(".hamburger-icon");
       const menuLinks = document.querySelector(".menu-links");
 
@@ -446,27 +355,18 @@
         menuLinks.classList.remove("open");
       }
 
-      // Optimized navbar scroll with requestAnimationFrame
-      let ticking = false;
-      let lastScrollY = 0;
-      
-      function updateNavbar() {
-        const nav = document.getElementById("hamburger-nav");
-        if (nav) {
+      // Navbar scroll effect (throttled)
+      let lastScrollTime = 0;
+      window.addEventListener("scroll", function () {
+        const now = Date.now();
+        if (now - lastScrollTime > 100) {
+          const nav = document.getElementById("hamburger-nav");
           nav.style.background = window.scrollY > 50 ? "rgba(24, 40, 72, 0.95)" : "rgba(24, 40, 72, 0.9)";
+          lastScrollTime = now;
         }
-        ticking = false;
-      }
+      });
 
-      window.addEventListener("scroll", function() {
-        lastScrollY = window.scrollY;
-        if (!ticking) {
-          window.requestAnimationFrame(updateNavbar);
-          ticking = true;
-        }
-      }, { passive: true });
-
-      // Hide loading screen
+      // Hide loading screen when page loads
       window.addEventListener('load', function() {
         setTimeout(() => {
           const el = document.getElementById('loading-screen');
@@ -474,18 +374,13 @@
         }, 500);
       });
 
-      // Optimized scroll reveal animations
-      const observerOptions = { 
-        threshold: 0.1, 
-        rootMargin: "0px 0px -50px 0px" 
-      };
-      
+      // Scroll reveal animations
+      const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
       const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.style.opacity = "1";
             entry.target.style.transform = "translateY(0)";
-            
             if (entry.target.classList.contains("details-container") ||
                 entry.target.classList.contains("color-container")) {
               entry.target.style.animation = "scaleIn 0.6s ease forwards";
@@ -511,54 +406,36 @@
         });
 
         document.querySelectorAll('.section__pic-container').forEach(el => {
-          el.classList.add('from-left'); 
-          el.style.opacity = "0"; 
-          observer.observe(el);
+          el.classList.add('from-left'); el.style.opacity = "0"; observer.observe(el);
         });
-        
         document.querySelectorAll('.section__text').forEach(el => {
-          el.classList.add('from-right'); 
-          el.style.opacity = "0"; 
-          observer.observe(el);
+          el.classList.add('from-right'); el.style.opacity = "0"; observer.observe(el);
         });
 
-        // Skill bars animation
+        // Animate skill bars
         const skillObserver = new IntersectionObserver(function(entries) {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               const skillBar = entry.target;
               const skillLevel = skillBar.getAttribute('data-skill');
-              setTimeout(() => { 
-                skillBar.style.width = (skillLevel || 0) + '%'; 
-              }, 200);
+              setTimeout(() => { skillBar.style.width = (skillLevel || 0) + '%'; }, 200);
               skillObserver.unobserve(skillBar);
             }
           });
         }, { threshold: 0.5 });
-        
         document.querySelectorAll('.skill-progress').forEach(skill => skillObserver.observe(skill));
       });
 
-      // Optimized parallax effect with requestAnimationFrame
-      let parallaxTicking = false;
-      
-      function updateParallax() {
-        const img = document.querySelector('#profile .section__pic-container img');
-        if (img) {
-          const scrolled = window.pageYOffset || document.documentElement.scrollTop;
-          const translateY = Math.min(scrolled * 0.3, 50); // Reduced multiplier for smoother effect
-          const scale = Math.min(1 + scrolled * 0.00003, 1.05); // Reduced scale
-          img.style.transform = `translateY(${translateY}px) scale(${scale})`;
-        }
-        parallaxTicking = false;
-      }
-
+      // Parallax effect for profile image (bounded)
       window.addEventListener('scroll', () => {
-        if (!parallaxTicking) {
-          window.requestAnimationFrame(updateParallax);
-          parallaxTicking = true;
-        }
-      }, { passive: true });
+        const img = document.querySelector('#profile .section__pic-container img');
+        if (!img) return;
+        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        const translateY = Math.min(scrolled * 0.4, 60);
+        const scale = Math.min(1 + scrolled * 0.00005, 1.1);
+        img.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        img.style.willChange = 'transform';
+      });
 
       // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -569,45 +446,22 @@
         });
       });
 
-      // Optimized cursor trail - MUCH less frequent, with max limit
-      const maxTrails = 10;
-      let trailCount = 0;
+      // Cursor trail
       let lastTrailTime = 0;
-      
-      // Only on desktop
-      if (window.innerWidth > 768) {
-        document.addEventListener('mousemove', (e) => {
-          const now = Date.now();
-          if (now - lastTrailTime > 100 && trailCount < maxTrails) { // Reduced frequency, added limit
-            const trail = document.createElement('div');
-            trail.className = 'cursor-trail';
-            trail.style.cssText = `
-              position: fixed; 
-              width: 8px; 
-              height: 8px; 
-              border-radius: 50%;
-              background: rgba(255,255,255,.6); 
-              pointer-events: none;
-              left: ${e.clientX}px;
-              top: ${e.clientY}px;
-              transform: translate(-50%, -50%); 
-              filter: blur(2px);
-              z-index: 9999;
-            `;
-            document.body.appendChild(trail);
-            trailCount++;
-            
-            setTimeout(() => {
-              trail.remove();
-              trailCount--;
-            }, 800);
-            
-            lastTrailTime = now;
-          }
-        }, { passive: true });
-      }
+      document.addEventListener('mousemove', (e) => {
+        const now = Date.now();
+        if (now - lastTrailTime > 50) {
+          const trail = document.createElement('div');
+          trail.className = 'cursor-trail';
+          trail.style.left = e.clientX + 'px';
+          trail.style.top = e.clientY + 'px';
+          document.body.appendChild(trail);
+          setTimeout(() => trail.remove(), 1000);
+          lastTrailTime = now;
+        }
+      });
 
-      // Lightbox functions (if needed)
+      // Lightbox (if you switch back to clickable gallery)
       function openLightbox(img) {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -615,7 +469,6 @@
         lightbox.style.display = 'flex';
         lightboxImg.src = img.src;
       }
-      
       function closeLightbox() {
         const lightbox = document.getElementById('lightbox');
         if (lightbox) lightbox.style.display = 'none';
