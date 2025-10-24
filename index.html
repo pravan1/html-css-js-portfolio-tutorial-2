@@ -260,7 +260,63 @@
         </div>
       </div>
     </section>
- <!-- PHOTOGRAPHY SECTION -->
+ 
+    
+
+
+    <!-- PHOTOGRAPHY SECTION -->
+  <style>
+    /* Pinterest-style masonry grid */
+    .photo-grid {
+      column-count: 4;
+      column-gap: 20px;
+      padding: 20px 0;
+    } 
+    @media (max-width: 1200px) {
+    .photo-grid { column-count: 3; }
+  }
+
+    @media (max-width: 768px) {
+    .photo-grid { column-count: 2; }
+    }
+
+    @media (max-width: 480px) {
+    .photo-grid { column-count: 1; }
+    }
+
+    .photo-item {
+      width: 100%;
+      margin-bottom: 20px;
+      display: block;
+      border-radius: 16px;
+      cursor: pointer;
+      break-inside: avoid;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+/* Hover effect: lift up with blue glow */
+    .photo-item:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6),
+                  0 8px 20px rgba(59, 130, 246, 0.4);
+    }
+
+/* Optional: Add a subtle scale on hover for extra polish */
+    .photo-item:hover {
+      transform: translateY(-12px) scale(1.02);
+    }
+
+    /* Make the description look better */
+    .photography-description {
+    text-align: center;
+      font-size: 1.1rem;
+      color: rgb(85, 85, 85);
+      margin: 1rem auto 2rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    </style>
     <section id="photography">
       <p class="section__text__p1">Visual Storytelling</p>
       <h1 class="title">Photography</h1>
@@ -284,6 +340,7 @@
         <img src="./assets/pic16.jpg" alt="Photo 16" class="photo-item" />
       </div>
     </section>
+
 
     <!-- CONTACT SECTION -->
     <section id="contact">
