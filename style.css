@@ -586,9 +586,9 @@ article .icon {
 .project-img {
   border-radius: clamp(1rem, 3vw, 2rem);
   width: 90%;
-  height: auto;
-  max-height: clamp(10rem, 20vw, 15rem);
+  height: 250px;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
   margin: 0 auto;
