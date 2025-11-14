@@ -105,6 +105,45 @@
         position: relative;
       }
 
+      /* Photo item with caption */
+      .photo-item-wrapper {
+        width: 100%;
+        margin-bottom: 20px;
+        break-inside: avoid;
+        position: relative;
+      }
+      .photo-item-wrapper img {
+        width: 100%;
+        display: block;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .photo-item-wrapper:hover img {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6),
+                    0 8px 20px rgba(59, 130, 246, 0.4);
+      }
+      .photo-item-wrapper::after {
+        content: attr(data-caption);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.85);
+        color: white;
+        padding: 12px;
+        border-radius: 0 0 16px 16px;
+        font-size: 14px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      .photo-item-wrapper:hover::after {
+        opacity: 1;
+      }
+
       /* Hover effect: lift up with blue glow - NEW */
       .photo-item:hover {
         transform: translateY(-12px) scale(1.02);
@@ -328,6 +367,12 @@
         <img src="./assets/pic14.jpg" alt="Photo 14" class="photo-item" />
         <img src="./assets/pic15.jpg" alt="Photo 15" class="photo-item" />
         <img src="./assets/pic16.jpg" alt="Photo 16" class="photo-item" />
+        <div class="photo-item-wrapper" data-caption="Our team winning HackFin 24">
+          <img src="./assets/pic17.jpg" alt="Our team winning HackFin 24" />
+        </div>
+        <div class="photo-item-wrapper" data-caption="Our team winning HackTX 25">
+          <img src="./assets/pic18.jpg" alt="Our team winning HackTX 25" />
+        </div>
       </div>
     </section>
 
