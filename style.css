@@ -883,6 +883,25 @@ footer p {
 
 /* ------------------- MEDIA QUERIES ------------------- */
 
+/* MacBook-specific fix for projects section */
+@media screen and (min-width: 1201px) and (max-width: 1680px) {
+  #projects .about-containers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .color-container {
+    min-height: 28rem;
+    max-width: 100%;
+  }
+
+  .project-img {
+    height: 220px;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   section {
     margin: 0 8rem;
