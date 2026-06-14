@@ -270,72 +270,37 @@
             <div class="drag-popup-arrow" id="dragPopupArrow"></div>
           </div>
           <div class="drag-line"></div>
-          <div class="drag-marker" style="left:15%"><div class="drag-marker-dot"></div></div>
-          <div class="drag-marker" style="left:50%"><div class="drag-marker-dot"></div></div>
-          <div class="drag-marker" style="left:85%"><div class="drag-marker-dot"></div></div>
+
+          <div class="drag-marker drag-node" style="left:15%" data-idx="0">
+            <img src="./assets/logo-hsk.png" alt="HSK Technologies" class="drag-node-logo drag-node-logo--bg" />
+            <div class="drag-marker-dot"></div>
+            <div class="drag-node-label">
+              <span class="drag-node-date">Jun 2023</span>
+              <span class="drag-node-company">HSK Technologies</span>
+            </div>
+          </div>
+
+          <div class="drag-marker drag-node" style="left:50%" data-idx="1">
+            <img src="./assets/utdlogo.png" alt="UT Dallas" class="drag-node-logo drag-node-logo--bg" />
+            <div class="drag-marker-dot"></div>
+            <div class="drag-node-label">
+              <span class="drag-node-date">Sep 2025</span>
+              <span class="drag-node-company">UT Dallas</span>
+            </div>
+          </div>
+
+          <div class="drag-marker drag-node" style="left:85%" data-idx="2">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="drag-node-logo drag-node-logo--bg" />
+            <div class="drag-marker-dot"></div>
+            <div class="drag-node-label">
+              <span class="drag-node-date">May 2026</span>
+              <span class="drag-node-company">LinkedIn</span>
+            </div>
+          </div>
+
           <div class="drag-handle" id="dragHandle"></div>
         </div>
-        <div class="drag-labels">
-          <span class="drag-label" style="left:15%">Jun 2023<br>HSK Technologies</span>
-          <span class="drag-label" style="left:50%">Sep 2025<br>UT Dallas</span>
-          <span class="drag-label" style="left:85%">May 2026<br>LinkedIn</span>
-        </div>
-        <p class="drag-hint">&#8592; drag to explore &#8594;</p>
-      </div>
-
-      <!-- Collapsible experience cards -->
-      <div class="exp-cards-wrap">
-
-        <div class="exp-collapsible-card" tabindex="0" aria-expanded="false">
-          <div class="exp-ccard-header">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn logo" class="exp-ccard-logo exp-ccard-logo--light" />
-            <span class="exp-ccard-company">LinkedIn</span>
-            <span class="exp-ccard-hint">hover or tap to expand</span>
-            <span class="exp-ccard-chevron">&#9662;</span>
-          </div>
-          <div class="exp-ccard-body">
-            <p class="exp-ccard-role">Software Engineering Intern — Mountain View, CA</p>
-            <span class="exp-ccard-date">May 2026 – Present</span>
-            <ul class="prof-exp-bullets">
-              <li>Building Helios, an AI-powered conversational HR agent that unifies hire-to-retire workflows across enterprise systems including Workday, SmartRecruiters, and ServiceNow.</li>
-              <li>Engineering backend agent workflows using Python, gRPC, MCP, and LangGraph-style orchestration, including routing, tool-calling, identity resolution, and agent-to-agent handoff flows.</li>
-              <li>Helping employees and managers complete HR tasks through conversational interfaces such as Microsoft Teams, Slack, and a web portal.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="exp-collapsible-card" tabindex="0" aria-expanded="false">
-          <div class="exp-ccard-header">
-            <img src="./assets/utdlogo.png" alt="UT Dallas logo" class="exp-ccard-logo exp-ccard-logo--light" />
-            <span class="exp-ccard-company">UT Dallas — School of Behavioral and Brain Sciences</span>
-            <span class="exp-ccard-chevron">&#9662;</span>
-          </div>
-          <div class="exp-ccard-body">
-            <p class="exp-ccard-role">Undergraduate Research Assistant</p>
-            <span class="exp-ccard-date">Sep 2025 – Feb 2026</span>
-            <ul class="prof-exp-bullets">
-              <li>Collected, cleaned, and preprocessed large-scale ultrasonic vocalization datasets using MATLAB, Python, VocalMat, and Avisoft-SASLab Lite.</li>
-              <li>Generated statistical summaries, visualizations, and research reports from raw audio recordings to support behavioral analysis.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="exp-collapsible-card" tabindex="0" aria-expanded="false">
-          <div class="exp-ccard-header">
-            <img src="./assets/logo-hsk.png" alt="HSK Technologies logo" class="exp-ccard-logo exp-ccard-logo--light" />
-            <span class="exp-ccard-company">HSK Technologies Inc.</span>
-            <span class="exp-ccard-chevron">&#9662;</span>
-          </div>
-          <div class="exp-ccard-body">
-            <p class="exp-ccard-role">Software Engineering Intern</p>
-            <span class="exp-ccard-date">Jun 2023 – Mar 2024</span>
-            <ul class="prof-exp-bullets">
-              <li>Integrated 15+ third-party APIs and automated CSV-based ETL pipelines for data ingestion, reporting, and analytics workflows.</li>
-              <li>Developed 50+ Python automation scripts for data processing, validation, file handling, and reporting, reducing manual operational workload.</li>
-            </ul>
-          </div>
-        </div>
-
+        <p class="drag-hint">&#8592; drag or hover to explore &#8594;</p>
       </div>
 
       <p class="section__text__p1" style="margin-top: 4rem;">Technical</p>
@@ -486,7 +451,7 @@
             <p class="project-desc">Real-time risk intelligence platform for trading desks, aggregating live market data, news sentiment, and AI-generated risk summaries into a unified dashboard.</p>
             <p class="project-stack">React, TypeScript, Python, Finnhub API, NYT API, Google Gemini</p>
             <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/pravan1'">Github</button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Vellankijay/FinTechProj'">Github</button>
             </div>
           </div>
         </div>
@@ -812,6 +777,13 @@
             if (!dragging) return;
             dragging = false; handle.classList.remove('dragging');
             applySnap(nearest(clampedX(e.changedTouches[0].clientX)), true);
+          });
+
+          // Hover on timeline nodes to reveal their card
+          document.querySelectorAll('.drag-node').forEach(function (node) {
+            node.addEventListener('mouseenter', function () {
+              applySnap(parseInt(this.getAttribute('data-idx')), true);
+            });
           });
         });
       }());

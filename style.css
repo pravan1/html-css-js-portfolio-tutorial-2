@@ -1227,22 +1227,58 @@ footer p {
   margin: 0.15rem 0 0.65rem;
 }
 
-/* Labels and hint below track */
-.drag-labels {
-  position: relative;
-  height: 38px;
-  margin-top: 0.5rem;
+/* DRAG TIMELINE NODES (logo + dot + label) */
+.drag-marker.drag-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 
-.drag-label {
-  position: absolute;
-  transform: translateX(-50%);
-  font-size: 0.68rem;
-  color: var(--color-sky-blue);
-  font-weight: 500;
-  line-height: 1.45;
-  text-align: center;
+.drag-node-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 7px;
+  object-fit: contain;
+  margin-bottom: 3px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.drag-node-logo--bg {
+  background: #fff;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.drag-node:hover .drag-node-logo {
+  transform: scale(1.12);
+  box-shadow: 0 4px 14px rgba(135, 206, 235, 0.4);
+}
+
+.drag-node-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7px;
+  line-height: 1.35;
   white-space: nowrap;
+}
+
+.drag-node-date {
+  font-size: 0.63rem;
+  color: var(--color-sky-blue);
+  font-weight: 600;
+}
+
+.drag-node-company {
+  font-size: 0.66rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.drag-track {
+  margin-bottom: 3rem;
 }
 
 .drag-hint {
@@ -1425,8 +1461,9 @@ footer p {
 
 /* SKILLS GRID */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   max-width: 1100px;
   margin: 2rem auto;
@@ -1435,6 +1472,8 @@ footer p {
 .skills-category {
   text-align: left !important;
   padding: 1.25rem 1.5rem;
+  flex: 0 1 320px;
+  min-width: 240px;
 }
 
 .skills-category-title {
@@ -1645,6 +1684,13 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     align-items: stretch;
+  }
+
+  /* center a lone card in the last row (e.g. 5th card in a 2-col grid) */
+  #projects .about-containers .color-container:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 1rem);
+    justify-self: center;
   }
 
   .color-container {
