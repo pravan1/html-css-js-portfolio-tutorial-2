@@ -207,7 +207,7 @@
       <div class="section__text">
         <p class="section__text__p1 animate-on-scroll">Hello, I'm</p>
         <h1 class="title">Pravan Gorthy</h1>
-        <p class="section__text__p2 animate-on-scroll animate-delay-1">Software Engineer Intern focused on Backend Infrastructure, AI Agents, and FinTech Systems</p>
+        <p class="section__text__p2 animate-on-scroll animate-delay-1">Software Engineer focused on Backend Infrastructure, AI Agents, and FinTech Systems</p>
         <p class="section__text__p3 animate-on-scroll animate-delay-2">Building reliable, scalable, and auditable systems across enterprise AI workflows, fintech infrastructure, and backend platforms.</p>
         <div class="btn-container">
           <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
@@ -263,71 +263,24 @@
     <section id="experience">
       <p class="section__text__p1">Professional</p>
       <h1 class="title">Experience</h1>
-      <div class="timeline-wrapper">
-        <div class="timeline-track">
-
-          <!-- HSK Technologies — Jun 2023 – Mar 2024 -->
-          <div class="timeline-node">
-            <div class="timeline-dot-wrap">
-              <div class="timeline-tooltip timeline-tooltip--left">
-                <h2 class="prof-exp-role">Software Engineering Intern</h2>
-                <p class="prof-exp-company">HSK Technologies Inc.</p>
-                <span class="prof-exp-date">Jun 2023 – Mar 2024</span>
-                <ul class="prof-exp-bullets">
-                  <li>Integrated 15+ third-party APIs and automated CSV-based ETL pipelines for data ingestion, reporting, and analytics workflows.</li>
-                  <li>Developed 50+ Python automation scripts for data processing, validation, file handling, and reporting, reducing manual operational workload.</li>
-                </ul>
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-label">
-              <span class="timeline-label-date">Jun 2023 – Mar 2024</span>
-              <span class="timeline-label-company">HSK Technologies</span>
-            </div>
+      <div class="drag-timeline-outer">
+        <div class="drag-track" id="dragTrack">
+          <div class="drag-popup-wrap" id="dragPopupWrap">
+            <div class="drag-popup-card" id="dragPopupCard"></div>
+            <div class="drag-popup-arrow" id="dragPopupArrow"></div>
           </div>
-
-          <!-- UT Dallas Research — Sep 2025 – Feb 2026 -->
-          <div class="timeline-node">
-            <div class="timeline-dot-wrap">
-              <div class="timeline-tooltip">
-                <h2 class="prof-exp-role">Undergraduate Research Assistant</h2>
-                <p class="prof-exp-company">School of Behavioral and Brain Sciences &mdash; UT Dallas</p>
-                <span class="prof-exp-date">Sep 2025 – Feb 2026</span>
-                <ul class="prof-exp-bullets">
-                  <li>Collected, cleaned, and preprocessed large-scale ultrasonic vocalization datasets using MATLAB, Python, VocalMat, and Avisoft-SASLab Lite.</li>
-                  <li>Generated statistical summaries, visualizations, and research reports from raw audio recordings to support behavioral analysis.</li>
-                </ul>
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-label">
-              <span class="timeline-label-date">Sep 2025 – Feb 2026</span>
-              <span class="timeline-label-company">UT Dallas Research</span>
-            </div>
-          </div>
-
-          <!-- LinkedIn — May 2026 – Present -->
-          <div class="timeline-node">
-            <div class="timeline-dot-wrap">
-              <div class="timeline-tooltip timeline-tooltip--right">
-                <h2 class="prof-exp-role">Software Engineering Intern</h2>
-                <p class="prof-exp-company">LinkedIn &mdash; Mountain View, CA</p>
-                <span class="prof-exp-date">May 2026 – Present</span>
-                <ul class="prof-exp-bullets">
-                  <li>Building Helios, an AI-powered conversational HR agent that unifies hire-to-retire workflows across enterprise systems including Workday, SmartRecruiters, and ServiceNow.</li>
-                  <li>Engineering backend agent workflows using Python, gRPC, MCP, and LangGraph-style orchestration, including routing, tool-calling, identity resolution, and agent-to-agent handoff flows.</li>
-                  <li>Helping employees and managers complete HR tasks through conversational interfaces such as Microsoft Teams, Slack, and a web portal.</li>
-                </ul>
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-label">
-              <span class="timeline-label-date">May 2026 – Present</span>
-              <span class="timeline-label-company">LinkedIn</span>
-            </div>
-          </div>
-
+          <div class="drag-line"></div>
+          <div class="drag-marker" style="left:15%"><div class="drag-marker-dot"></div></div>
+          <div class="drag-marker" style="left:50%"><div class="drag-marker-dot"></div></div>
+          <div class="drag-marker" style="left:85%"><div class="drag-marker-dot"></div></div>
+          <div class="drag-handle" id="dragHandle"></div>
         </div>
+        <div class="drag-labels">
+          <span class="drag-label" style="left:15%">Jun 2023<br>HSK Technologies</span>
+          <span class="drag-label" style="left:50%">Sep 2025<br>UT Dallas</span>
+          <span class="drag-label" style="left:85%">May 2026<br>LinkedIn</span>
+        </div>
+        <p class="drag-hint">&#8592; drag to explore &#8594;</p>
       </div>
 
       <p class="section__text__p1" style="margin-top: 4rem;">Technical</p>
@@ -642,6 +595,150 @@
           lastTrailTime = now;
         }
       });
+
+      // Drag timeline
+      (function () {
+        const SNAPS = [0.15, 0.50, 0.85];
+        const TRANSFORMS = ['translateX(0)', 'translateX(-50%)', 'translateX(-100%)'];
+        const ARROW_POS = ['12px', '50%', 'calc(100% - 20px)'];
+        const exps = [
+          {
+            logo: './assets/logo-hsk.png', light: true,
+            role: 'Software Engineering Intern',
+            company: 'HSK Technologies Inc.',
+            date: 'Jun 2023 – Mar 2024',
+            bullets: [
+              'Integrated 15+ third-party APIs and automated CSV-based ETL pipelines for data ingestion, reporting, and analytics workflows.',
+              'Developed 50+ Python automation scripts for data processing, validation, file handling, and reporting, reducing manual operational workload.'
+            ]
+          },
+          {
+            logo: './assets/utdlogo.png', light: true,
+            role: 'Undergraduate Research Assistant',
+            company: 'School of Behavioral and Brain Sciences — UT Dallas',
+            date: 'Sep 2025 – Feb 2026',
+            bullets: [
+              'Collected, cleaned, and preprocessed large-scale ultrasonic vocalization datasets using MATLAB, Python, VocalMat, and Avisoft-SASLab Lite.',
+              'Generated statistical summaries, visualizations, and research reports from raw audio recordings to support behavioral analysis.'
+            ]
+          },
+          {
+            logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg', light: true,
+            role: 'Software Engineering Intern',
+            company: 'LinkedIn — Mountain View, CA',
+            date: 'May 2026 – Present',
+            bullets: [
+              'Building Helios, an AI-powered conversational HR agent that unifies hire-to-retire workflows across enterprise systems including Workday, SmartRecruiters, and ServiceNow.',
+              'Engineering backend agent workflows using Python, gRPC, MCP, and LangGraph-style orchestration, including routing, tool-calling, identity resolution, and agent-to-agent handoff flows.',
+              'Helping employees and managers complete HR tasks through conversational interfaces such as Microsoft Teams, Slack, and a web portal.'
+            ]
+          }
+        ];
+
+        let activeIdx = 0;
+        let dragging = false;
+
+        function cardHTML(idx) {
+          const e = exps[idx];
+          const li = e.bullets.map(b => '<li>' + b + '</li>').join('');
+          return '<div class="drag-card-logo-wrap"><img src="' + e.logo + '" alt="logo" class="drag-card-logo' + (e.light ? ' light' : '') + '"></div>' +
+            '<h2 class="drag-card-role">' + e.role + '</h2>' +
+            '<p class="drag-card-company">' + e.company + '</p>' +
+            '<span class="drag-card-date">' + e.date + '</span>' +
+            '<ul class="prof-exp-bullets">' + li + '</ul>';
+        }
+
+        function applySnap(idx, animate) {
+          activeIdx = idx;
+          const handle = document.getElementById('dragHandle');
+          const wrap   = document.getElementById('dragPopupWrap');
+          const card   = document.getElementById('dragPopupCard');
+          const arrow  = document.getElementById('dragPopupArrow');
+          if (!handle) return;
+          const pct = (SNAPS[idx] * 100) + '%';
+          if (animate) {
+            handle.style.transition = 'left 0.35s cubic-bezier(0.4,0,0.2,1)';
+            wrap.style.transition   = 'left 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1)';
+            setTimeout(function () { handle.style.transition = ''; wrap.style.transition = ''; }, 380);
+          }
+          handle.style.left    = pct;
+          wrap.style.left      = pct;
+          wrap.style.transform = TRANSFORMS[idx];
+          arrow.style.marginLeft = ARROW_POS[idx] === '50%' ? 'auto' : ARROW_POS[idx];
+          arrow.style.marginRight = idx === 2 ? '0' : 'auto';
+          card.innerHTML = cardHTML(idx);
+          document.querySelectorAll('.drag-marker-dot').forEach(function (m, i) {
+            m.classList.toggle('active', i === idx);
+          });
+        }
+
+        function nearest(rx) {
+          return SNAPS.reduce(function (b, s, i) {
+            return Math.abs(s - rx) < Math.abs(SNAPS[b] - rx) ? i : b;
+          }, 0);
+        }
+
+        function clampedX(clientX) {
+          var r = document.getElementById('dragTrack').getBoundingClientRect();
+          return Math.max(0.1, Math.min(0.9, (clientX - r.left) / r.width));
+        }
+
+        function onMove(clientX) {
+          var rx  = clampedX(clientX);
+          var pct = (rx * 100) + '%';
+          var handle = document.getElementById('dragHandle');
+          var wrap   = document.getElementById('dragPopupWrap');
+          var card   = document.getElementById('dragPopupCard');
+          handle.style.left    = pct;
+          wrap.style.left      = pct;
+          wrap.style.transform = 'translateX(-50%)';
+          var n = nearest(rx);
+          if (n !== activeIdx) {
+            activeIdx = n;
+            card.innerHTML = cardHTML(n);
+            document.querySelectorAll('.drag-marker-dot').forEach(function (m, i) {
+              m.classList.toggle('active', i === n);
+            });
+          }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+          var handle = document.getElementById('dragHandle');
+          var track  = document.getElementById('dragTrack');
+          if (!handle || !track) return;
+
+          document.getElementById('dragPopupCard').innerHTML = cardHTML(0);
+          document.querySelectorAll('.drag-marker-dot')[0].classList.add('active');
+          document.getElementById('dragPopupArrow').style.marginLeft = ARROW_POS[0];
+
+          track.addEventListener('click', function (e) {
+            if (e.target === handle) return;
+            applySnap(nearest(clampedX(e.clientX)), true);
+          });
+
+          handle.addEventListener('mousedown', function (e) {
+            dragging = true; handle.classList.add('dragging'); e.preventDefault();
+          });
+          document.addEventListener('mousemove', function (e) { if (dragging) onMove(e.clientX); });
+          document.addEventListener('mouseup', function (e) {
+            if (!dragging) return;
+            dragging = false; handle.classList.remove('dragging');
+            applySnap(nearest(clampedX(e.clientX)), true);
+          });
+
+          handle.addEventListener('touchstart', function (e) {
+            dragging = true; handle.classList.add('dragging'); e.preventDefault();
+          }, { passive: false });
+          document.addEventListener('touchmove', function (e) {
+            if (dragging) { onMove(e.touches[0].clientX); e.preventDefault(); }
+          }, { passive: false });
+          document.addEventListener('touchend', function (e) {
+            if (!dragging) return;
+            dragging = false; handle.classList.remove('dragging');
+            applySnap(nearest(clampedX(e.changedTouches[0].clientX)), true);
+          });
+        });
+      }());
 
       // Lightbox (if you switch back to clickable gallery)
       function openLightbox(img) {

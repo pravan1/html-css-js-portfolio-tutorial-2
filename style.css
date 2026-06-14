@@ -611,6 +611,7 @@ article .icon {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  flex: 1;
 }
 
 .color-container:hover .project-img {
@@ -952,6 +953,304 @@ footer p {
   font-size: 0.92rem;
   color: #333 !important;
   line-height: 1.65;
+}
+
+/* EXPERIENCE SLIDER */
+.exp-slider-outer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.exp-slider-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 2rem;
+}
+
+.exp-slider-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exp-card {
+  min-width: 100%;
+  flex-shrink: 0;
+  text-align: left !important;
+  padding: 2rem 2.25rem;
+  box-sizing: border-box;
+}
+
+.exp-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.exp-logo-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.exp-logo-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: contain;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.exp-logo-img--light {
+  background: #fff;
+  padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.exp-card-role {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000 !important;
+  margin-bottom: 0.2rem;
+  text-align: left;
+}
+
+.exp-card-company {
+  font-size: 0.92rem;
+  color: #444 !important;
+  font-weight: 500;
+  text-align: left;
+}
+
+.exp-card-date {
+  display: block;
+  font-size: 0.8rem;
+  color: #666 !important;
+  font-weight: 500;
+  margin: 0.2rem 0 0.8rem;
+}
+
+.exp-slider-btn {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(135, 206, 235, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #87CEEB;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  padding-bottom: 2px;
+}
+
+.exp-slider-btn:hover {
+  background: rgba(135, 206, 235, 0.18);
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(135, 206, 235, 0.25);
+}
+
+.exp-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+}
+
+.exp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(135, 206, 235, 0.3);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  border: none;
+}
+
+.exp-dot.active {
+  background: var(--color-sky-blue);
+  transform: scale(1.35);
+}
+
+/* DRAG TIMELINE */
+.drag-timeline-outer {
+  max-width: 860px;
+  margin: 1rem auto;
+  padding: 0 2rem;
+}
+
+.drag-track {
+  position: relative;
+  height: 44px;
+  margin-top: 300px;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.drag-track:active { cursor: grabbing; }
+
+.drag-line {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--color-indigo), var(--color-sky-blue), var(--color-indigo));
+  border-radius: 2px;
+}
+
+.drag-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.drag-marker-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--color-deep-blue);
+  border: 2px solid var(--color-sky-blue);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.drag-marker-dot.active {
+  background: var(--color-sky-blue);
+  transform: scale(1.5);
+}
+
+.drag-handle {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-sky-blue);
+  border: 3px solid #fff;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  z-index: 5;
+  box-shadow: 0 0 0 5px rgba(135, 206, 235, 0.25), 0 4px 14px rgba(0,0,0,0.3);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.drag-handle.dragging {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow: 0 0 0 9px rgba(135, 206, 235, 0.18), 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Popup card */
+.drag-popup-wrap {
+  position: absolute;
+  bottom: calc(100% + 18px);
+  left: 15%;
+  transform: translateX(0);
+  width: 340px;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.drag-popup-card {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 1.25rem;
+  padding: 1.4rem 1.6rem;
+  text-align: left;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.28), 0 0 20px rgba(75,138,196,0.1);
+  border: 1px solid rgba(135, 206, 235, 0.3);
+}
+
+.drag-popup-arrow {
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid rgba(255, 255, 255, 0.97);
+  margin-left: 12px;
+}
+
+.drag-card-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.drag-card-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.drag-card-logo.light {
+  background: #fff;
+  padding: 6px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.drag-card-role {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000 !important;
+  margin-bottom: 0.2rem;
+}
+
+.drag-card-company {
+  font-size: 0.82rem;
+  color: #444 !important;
+  font-weight: 500;
+}
+
+.drag-card-date {
+  display: block;
+  font-size: 0.75rem;
+  color: #666 !important;
+  margin: 0.15rem 0 0.65rem;
+}
+
+/* Labels and hint below track */
+.drag-labels {
+  position: relative;
+  height: 38px;
+  margin-top: 0.5rem;
+}
+
+.drag-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  color: var(--color-sky-blue);
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.drag-hint {
+  text-align: center;
+  font-size: 0.72rem;
+  color: rgba(135, 206, 235, 0.45);
+  margin-top: 0.25rem;
+  letter-spacing: 0.08em;
 }
 
 /* INTERACTIVE TIMELINE */
