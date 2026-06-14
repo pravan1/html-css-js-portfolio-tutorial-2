@@ -1167,6 +1167,14 @@ footer p {
   width: 340px;
   pointer-events: none;
   z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.drag-popup-wrap.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .drag-popup-card {

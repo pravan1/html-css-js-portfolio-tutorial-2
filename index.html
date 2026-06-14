@@ -758,17 +758,23 @@
           });
 
           handle.addEventListener('mousedown', function (e) {
-            dragging = true; handle.classList.add('dragging'); e.preventDefault();
+            dragging = true; handle.classList.add('dragging');
+            wrap.classList.add('visible');
+            e.preventDefault();
           });
           document.addEventListener('mousemove', function (e) { if (dragging) onMove(e.clientX); });
           document.addEventListener('mouseup', function (e) {
             if (!dragging) return;
             dragging = false; handle.classList.remove('dragging');
             applySnap(nearest(clampedX(e.clientX)), true);
+            // hide popup after a short delay so user can read the snapped card
+            setTimeout(function () { if (!dragging) wrap.classList.remove('visible'); }, 1200);
           });
 
           handle.addEventListener('touchstart', function (e) {
-            dragging = true; handle.classList.add('dragging'); e.preventDefault();
+            dragging = true; handle.classList.add('dragging');
+            wrap.classList.add('visible');
+            e.preventDefault();
           }, { passive: false });
           document.addEventListener('touchmove', function (e) {
             if (dragging) { onMove(e.touches[0].clientX); e.preventDefault(); }
@@ -777,13 +783,18 @@
             if (!dragging) return;
             dragging = false; handle.classList.remove('dragging');
             applySnap(nearest(clampedX(e.changedTouches[0].clientX)), true);
+            setTimeout(function () { if (!dragging) wrap.classList.remove('visible'); }, 1800);
           });
 
-          // Hover on timeline nodes to reveal their card
+          // Show popup on node hover; hide when mouse leaves the track entirely
           document.querySelectorAll('.drag-node').forEach(function (node) {
             node.addEventListener('mouseenter', function () {
               applySnap(parseInt(this.getAttribute('data-idx')), true);
+              wrap.classList.add('visible');
             });
+          });
+          track.addEventListener('mouseleave', function () {
+            if (!dragging) wrap.classList.remove('visible');
           });
         });
       }());
