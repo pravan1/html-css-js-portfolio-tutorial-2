@@ -746,6 +746,7 @@
         document.addEventListener('DOMContentLoaded', function () {
           var handle = document.getElementById('dragHandle');
           var track  = document.getElementById('dragTrack');
+          var wrap   = document.getElementById('dragPopupWrap');
           if (!handle || !track) return;
 
           document.getElementById('dragPopupCard').innerHTML = cardHTML(0);
