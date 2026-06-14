@@ -283,6 +283,61 @@
         <p class="drag-hint">&#8592; drag to explore &#8594;</p>
       </div>
 
+      <!-- Collapsible experience cards -->
+      <div class="exp-cards-wrap">
+
+        <div class="exp-collapsible-card" tabindex="0" aria-expanded="false">
+          <div class="exp-ccard-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn logo" class="exp-ccard-logo exp-ccard-logo--light" />
+            <span class="exp-ccard-company">LinkedIn</span>
+            <span class="exp-ccard-hint">hover or tap to expand</span>
+            <span class="exp-ccard-chevron">&#9662;</span>
+          </div>
+          <div class="exp-ccard-body">
+            <p class="exp-ccard-role">Software Engineering Intern — Mountain View, CA</p>
+            <span class="exp-ccard-date">May 2026 – Present</span>
+            <ul class="prof-exp-bullets">
+              <li>Building Helios, an AI-powered conversational HR agent that unifies hire-to-retire workflows across enterprise systems including Workday, SmartRecruiters, and ServiceNow.</li>
+              <li>Engineering backend agent workflows using Python, gRPC, MCP, and LangGraph-style orchestration, including routing, tool-calling, identity resolution, and agent-to-agent handoff flows.</li>
+              <li>Helping employees and managers complete HR tasks through conversational interfaces such as Microsoft Teams, Slack, and a web portal.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-collapsible-card" tabindex="0" aria-expanded="false">
+          <div class="exp-ccard-header">
+            <img src="./assets/utdlogo.png" alt="UT Dallas logo" class="exp-ccard-logo exp-ccard-logo--light" />
+            <span class="exp-ccard-company">UT Dallas — School of Behavioral and Brain Sciences</span>
+            <span class="exp-ccard-chevron">&#9662;</span>
+          </div>
+          <div class="exp-ccard-body">
+            <p class="exp-ccard-role">Undergraduate Research Assistant</p>
+            <span class="exp-ccard-date">Sep 2025 – Feb 2026</span>
+            <ul class="prof-exp-bullets">
+              <li>Collected, cleaned, and preprocessed large-scale ultrasonic vocalization datasets using MATLAB, Python, VocalMat, and Avisoft-SASLab Lite.</li>
+              <li>Generated statistical summaries, visualizations, and research reports from raw audio recordings to support behavioral analysis.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-collapsible-card" tabindex="0" aria-expanded="false">
+          <div class="exp-ccard-header">
+            <img src="./assets/logo-hsk.png" alt="HSK Technologies logo" class="exp-ccard-logo exp-ccard-logo--light" />
+            <span class="exp-ccard-company">HSK Technologies Inc.</span>
+            <span class="exp-ccard-chevron">&#9662;</span>
+          </div>
+          <div class="exp-ccard-body">
+            <p class="exp-ccard-role">Software Engineering Intern</p>
+            <span class="exp-ccard-date">Jun 2023 – Mar 2024</span>
+            <ul class="prof-exp-bullets">
+              <li>Integrated 15+ third-party APIs and automated CSV-based ETL pipelines for data ingestion, reporting, and analytics workflows.</li>
+              <li>Developed 50+ Python automation scripts for data processing, validation, file handling, and reporting, reducing manual operational workload.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
       <p class="section__text__p1" style="margin-top: 4rem;">Technical</p>
       <h1 class="title">Skills</h1>
       <div class="skills-grid">
@@ -368,11 +423,13 @@
       <div class="experience-details-container">
         <div class="about-containers">
           <div class="details-container color-container"
-               data-tooltip="FIRST @ HackTX — AI-powered carbon tracker; React + Node; personalized insights.">
+               data-tooltip="FIRST @ HackTX 2025 — AI-powered carbon tracker; React + Node; personalized insights.">
             <div class="article-container">
               <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
             </div>
             <h2 class="experience-sub-title project-title">EcoFin Carbon</h2>
+            <p class="project-desc">AI-powered personal carbon footprint tracker that links spending data to real-time emissions estimates and delivers personalized recommendations. Won 1st place at HackTX 2025.</p>
+            <p class="project-stack">React, Node.js, Express, OpenAI API</p>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/arnavvalvekar/hacktx'">Github</button>
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/ecofin-carbon?ref_content=my-projects-tab&ref_feature=my_projects'">Live Demo</button>
@@ -380,11 +437,13 @@
           </div>
 
           <div class="details-container color-container"
-               data-tooltip="FIRST @ HackFIN — budget tracker with Stripe + analytics dashboards.">
+               data-tooltip="FIRST @ HackFIN 2024 — budget tracker with Stripe + analytics dashboards.">
             <div class="article-container">
               <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
             </div>
             <h2 class="experience-sub-title project-title">BudgetCents</h2>
+            <p class="project-desc">Smart personal finance dashboard that integrates with Stripe to track transactions, visualize spending habits, and surface savings opportunities. Won 1st place at HackFIN 2024.</p>
+            <p class="project-stack">React, Node.js, Stripe API, PostgreSQL</p>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/saigudisa6/budgetcents'">Github</button>
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/budgetcents'">Live Demo</button>
@@ -397,20 +456,37 @@
               <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
             </div>
             <h2 class="experience-sub-title project-title">Poseperfect.ai</h2>
+            <p class="project-desc">Computer vision app that analyzes bodybuilding poses in real time, providing form feedback and coaching cues using pose estimation.</p>
+            <p class="project-stack">Python, MediaPipe, OpenCV, Flask</p>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/pravan1/poseperfect'">Github</button>
             </div>
           </div>
 
           <div class="details-container color-container"
-               data-tooltip="AI-powered personalized Toyota car buying">
+               data-tooltip="AI-powered personalized Toyota car buying assistant.">
             <div class="article-container">
               <img src="./assets/project-4.png" alt="Project 4" class="project-img" />
             </div>
             <h2 class="experience-sub-title project-title">Toyota Nexus</h2>
+            <p class="project-desc">AI-powered car buying assistant that personalizes Toyota vehicle recommendations based on user preferences, lifestyle, and financial profile.</p>
+            <p class="project-stack">React, Python, Flask, OpenAI API</p>
             <div class="btn-container">
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/pravan1/hackUTD-toyota-track'">Github</button>
               <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/toyota-nexus-ai-powered-car-buying-simplified'">Live Demo</button>
+            </div>
+          </div>
+
+          <div class="details-container color-container"
+               data-tooltip="Real-time risk intelligence for trading desks — market data, news sentiment, AI summaries.">
+            <div class="article-container">
+              <div class="project-img-placeholder">RiskPulse</div>
+            </div>
+            <h2 class="experience-sub-title project-title">RiskPulse</h2>
+            <p class="project-desc">Real-time risk intelligence platform for trading desks, aggregating live market data, news sentiment, and AI-generated risk summaries into a unified dashboard.</p>
+            <p class="project-stack">React, TypeScript, Python, Finnhub API, NYT API, Google Gemini</p>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/pravan1'">Github</button>
             </div>
           </div>
         </div>
@@ -736,6 +812,28 @@
             if (!dragging) return;
             dragging = false; handle.classList.remove('dragging');
             applySnap(nearest(clampedX(e.changedTouches[0].clientX)), true);
+          });
+        });
+      }());
+
+      // Collapsible experience cards: touch tap toggle + keyboard Enter/Space
+      (function () {
+        var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        document.querySelectorAll('.exp-collapsible-card').forEach(function (card) {
+          // touch devices: click toggles open/closed
+          if (!supportsHover) {
+            card.addEventListener('click', function () {
+              var open = this.classList.toggle('is-open');
+              this.setAttribute('aria-expanded', String(open));
+            });
+          }
+          // keyboard: Enter or Space toggles open/closed on all devices
+          card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              var open = this.classList.toggle('is-open');
+              this.setAttribute('aria-expanded', String(open));
+            }
           });
         });
       }());

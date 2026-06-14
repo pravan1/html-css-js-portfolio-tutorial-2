@@ -1470,6 +1470,172 @@ footer p {
   box-shadow: 0 2px 8px rgba(75, 108, 183, 0.2);
 }
 
+/* PROJECT DESCRIPTIONS */
+.project-desc {
+  font-size: 0.82rem;
+  color: #444 !important;
+  line-height: 1.55;
+  margin: 0 0.5rem 0.4rem;
+  text-align: left;
+}
+
+.project-stack {
+  font-size: 0.76rem;
+  color: #555 !important;
+  font-weight: 500;
+  margin: 0 0.5rem 0.6rem;
+  text-align: left;
+}
+
+.project-img-placeholder {
+  border-radius: clamp(1rem, 3vw, 2rem);
+  width: 90%;
+  height: 250px;
+  background: linear-gradient(135deg, #1a2a4a 0%, #0d1b36 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgba(135, 206, 235, 0.5);
+  letter-spacing: 0.05em;
+}
+
+#projects .about-containers {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* COLLAPSIBLE EXPERIENCE CARDS */
+.exp-cards-wrap {
+  max-width: 860px;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.exp-collapsible-card {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 0.9rem;
+  border: 1px solid rgba(135, 206, 235, 0.25);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.exp-collapsible-card:hover,
+.exp-collapsible-card:focus-visible {
+  box-shadow: 0 8px 28px rgba(75, 138, 196, 0.28);
+  border-color: rgba(135, 206, 235, 0.55);
+}
+
+.exp-collapsible-card:focus-visible {
+  outline: 2px solid var(--color-sky-blue);
+  outline-offset: 2px;
+}
+
+.exp-ccard-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.2rem;
+  user-select: none;
+}
+
+.exp-ccard-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.exp-ccard-logo--light {
+  background: #fff;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.09);
+}
+
+.exp-ccard-company {
+  flex: 1;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.exp-ccard-hint {
+  font-size: 0.68rem;
+  color: #bbb;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+  margin-right: 0.4rem;
+}
+
+.exp-ccard-chevron {
+  font-size: 0.72rem;
+  color: #aaa;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* collapsed body */
+.exp-ccard-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 1.2rem;
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+
+/* expanded: hover (pointer devices), focus-within, or JS is-open toggle */
+.exp-collapsible-card:hover .exp-ccard-body,
+.exp-collapsible-card:focus-within .exp-ccard-body,
+.exp-collapsible-card.is-open .exp-ccard-body {
+  max-height: 600px;
+  opacity: 1;
+  padding: 0 1.2rem 1.2rem;
+}
+
+.exp-collapsible-card:hover .exp-ccard-chevron,
+.exp-collapsible-card:focus-within .exp-ccard-chevron,
+.exp-collapsible-card.is-open .exp-ccard-chevron {
+  transform: rotate(180deg);
+}
+
+.exp-ccard-role {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.15rem;
+}
+
+.exp-ccard-date {
+  display: block;
+  font-size: 0.78rem;
+  color: #666;
+  font-weight: 500;
+  margin: 0.1rem 0 0.7rem;
+}
+
+/* touch/no-hover devices: disable CSS :hover expand so JS click-toggle drives it */
+@media (hover: none) {
+  .exp-collapsible-card:hover .exp-ccard-body {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 1.2rem;
+  }
+  .exp-collapsible-card:hover .exp-ccard-chevron {
+    transform: none;
+  }
+  .exp-ccard-hint { display: none; }
+}
+
 /* ------------------- MEDIA QUERIES ------------------- */
 
 /* MacBook-specific fix for projects section */
