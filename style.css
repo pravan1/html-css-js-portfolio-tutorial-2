@@ -274,13 +274,7 @@ section {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#profile .section__pic-container img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  object-position: 53% 22%;
 }
 
 .section__text {
