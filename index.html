@@ -602,8 +602,13 @@
         document.querySelectorAll('.skill-progress').forEach(skill => skillObserver.observe(skill));
       });
 
-      // Parallax effect for profile image (bounded)
+      // Parallax effect for profile image (desktop only)
+      function resetProfileImg() {
+        const img = document.querySelector('#profile .section__pic-container img');
+        if (img) { img.style.transform = ''; img.style.willChange = ''; }
+      }
       window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 900) return;
         const img = document.querySelector('#profile .section__pic-container img');
         if (!img) return;
         const scrolled = window.pageYOffset || document.documentElement.scrollTop;
@@ -611,6 +616,9 @@
         const scale = Math.min(1 + scrolled * 0.00005, 1.1);
         img.style.transform = `translateY(${translateY}px) scale(${scale})`;
         img.style.willChange = 'transform';
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth <= 900) resetProfileImg();
       });
 
       // Smooth scroll
